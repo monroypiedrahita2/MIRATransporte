@@ -26,11 +26,12 @@ export class FormularioComponent implements OnInit {
     const name: string = this.form.get('name')?.value
     const phone: string = this.form.get('phone')?.value
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value
-    const lugarVotacion: string = this.form.get('lugarVotacion')?.value
+    const lugarVotacion: string = this.form.get('lugarVotacion')?.value.replace(/ /g, "-")
+    console.log(lugarVotacion)
     const vehiculo: string = this.form.get('vehiculo')?.value
     const personas: string = this.form.get('personas')?.value
     const comment: string = this.form.get('comment')?.value
-    const data: string = `${this.msn}  .... Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}* .... RECOJER EN: *${LugarRecogida}* ....  LLEVAR A *${lugarVotacion}*  ....  COMUNICARSE CON: *${name}*, Teléfono *${phone}*... NOTA: *${comment}*`
+    const data: string = `${this.msn}   Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion} GPS: *https://www.google.com/maps/search/${lugarVotacion}*         COMUNICARSE CON: *${name}*,          Teléfono *${phone}*       NOTA: *${comment}*`
     window.open(data)
   }
 
