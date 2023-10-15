@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validator, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -7,6 +7,10 @@ import { FormGroup, FormControl, Validator, Validators, FormBuilder } from '@ang
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+  apiWp: string = 'https://api.whatsapp.com/send?phone='
+  telmsn: string = '3137245626'
+  text: string = '&text='
+  msn: string = this.apiWp + this.telmsn + this.text
   form!: FormGroup
   myField = new FormControl
 
@@ -18,20 +22,27 @@ export class FormularioComponent implements OnInit {
     this.form = this.initForm();
   }
 
-  onSubmit(){
-    console.log('form ->', )
+  onSubmit() {
+    const name: string = this.form.get('name')?.value
+    const phone: string = this.form.get('phone')?.value
+    const LugarRecogida: string = this.form.get('LugarRecogida')?.value
+    const lugarVotacion: string = this.form.get('lugarVotacion')?.value
+    const vehiculo: string = this.form.get('vehiculo')?.value
+    const personas: string = this.form.get('personas')?.value
+    const comment: string = this.form.get('comment')?.value
+    const data: string = `${this.msn}  .... Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}* .... RECOJER EN: *${LugarRecogida}* ....  LLEVAR A *${lugarVotacion}*  ....  COMUNICARSE CON: *${name}*, Teléfono *${phone}*... NOTA: *${comment}*`
+    window.open(data)
   }
 
   initForm(): FormGroup {
     return this.fb.group({
       name: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10) ]],
+      phone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       LugarRecogida: ['', Validators.required],
       lugarVotacion: ['', Validators.required],
       vehiculo: ['', Validators.required],
-      personas: ['', Validators.required],
-      comment: ['', Validators.required],
+      personas: ['1', Validators.required],
+      comment: ['Sin observaciones'],
     })
   }
-
 }

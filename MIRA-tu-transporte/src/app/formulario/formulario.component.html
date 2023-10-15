@@ -18,6 +18,12 @@
             id="exampleFormControlInput1"
             formControlName="name"
           />
+          <div
+            *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']"
+            class="text-danger"
+          >
+            Campo requerido
+          </div>
         </div>
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
@@ -28,66 +34,101 @@
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="phone"
-
           />
+          <div
+            *ngIf="
+              form.get('phone')?.touched && form.get('phone')?.value.length > 10
+            "
+            class="text-danger"
+          >
+            Verifique, solo pueden ser 10 digitos
+          </div>
+          <div
+            *ngIf="
+              form.get('phone')?.touched && form.get('phone')?.value.length < 10
+            "
+            class="text-danger"
+          >
+            No pueden ser menos de 10 dígitos
+          </div>
         </div>
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
-            >Lugar de recoger</label
+            >¿A dónde se tiene que recoger?</label
           >
           <input
             type="string"
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="LugarRecogida"
-
           />
+          <div
+          *ngIf="form.get('LugarRecogida')?.touched && form.get('LugarRecogida')?.errors?.['required']"
+          class="text-danger"
+        >
+          Campo requerido
+        </div>
         </div>
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
-            >Lugar de votación</label
+            >¿Dónde vota la persona?</label
           >
           <input
             type="string"
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="lugarVotacion"
-
           />
+          <div
+          *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
+          class="text-danger"
+        >
+          Campo requerido
+        </div>
         </div>
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0">
-            Vehículo
-        </label>
-        <select
-        class="form-select"
-        aria-label="Default select example"
-        formControlName="vehiculo"
-        >
-          <option value="1">Carro</option>
-          <option value="2">Moto</option>
-        </select>
+            ¿Qué vehículo necesita?
+          </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="vehiculo"
+          >
+          <option value="MOTO">Moto</option>
+          <option value="CARRO">Carro</option>
+          </select>
         </div>
-        <div class="col-sm-6 mb-2">
+        <div class="col-sm-6 mb-2" *ngIf="form.get('vehiculo')?.value === 'CARRO' || !form.get('vehiculo')?.value == null " >
           <label for="exampleFormControlInput1" class="m-0">
-            Cantidad de personas a recoger
-        </label>
-        <select class="form-select" aria-label="Default select example"
-        formControlName="personas"
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="2">4</option>
-          <option value="2">5</option>
-        </select>
+            ¿Cuántas personas se transportarán en total?
+          </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="personas"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">4</option>
+          </select>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label m-0">Observaciones</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  formControlName="comment"></textarea>
+          <label for="exampleFormControlTextarea1" class="form-label m-0"
+            >Observaciones</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            formControlName="comment"
+          ></textarea>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-success" [disabled]="form.invalid">Pedir vehículo</button>
+       <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+          Pedir vehículo
+        </button>
       </div>
     </form>
   </div>
