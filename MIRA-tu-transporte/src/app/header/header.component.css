@@ -1,0 +1,12 @@
+.container-header{
+  background-color: #00389f;
+  color: #fdfdfd;
+  border-radius: 15px;
+}
+
+h1{
+  font-size: 70px;
+  font-family: Fraktur;
+  font-weight: bold;
+  font-style: italic;
+}
