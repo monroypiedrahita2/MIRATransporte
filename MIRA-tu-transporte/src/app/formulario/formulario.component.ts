@@ -27,7 +27,6 @@ export class FormularioComponent implements OnInit {
     const phone: string = this.form.get('phone')?.value
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value
     const lugarVotacion: string = this.form.get('lugarVotacion')?.value.replace(/ /g, "-")
-    console.log(lugarVotacion)
     const vehiculo: string = this.form.get('vehiculo')?.value
     const personas: string = this.form.get('personas')?.value
     const comment: string = this.form.get('comment')?.value
