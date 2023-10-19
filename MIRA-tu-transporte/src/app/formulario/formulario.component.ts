@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class FormularioComponent implements OnInit {
   apiWp: string = 'https://api.whatsapp.com/send?phone='
-  telmsn: string = '3137245626'
+  telmsn: string = '3176158612'
   text: string = '&text='
   msn: string = this.apiWp + this.telmsn + this.text
   form!: FormGroup
