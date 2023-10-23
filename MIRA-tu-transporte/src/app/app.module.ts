@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlamedaComponent } from './alameda/alameda.component';
+import { TelefonosComponent } from './telefonos/telefonos.component';
+import { GuadalupeComponent } from './guadalupe/guadalupe.component';
+import { PopaComponent } from './popa/popa.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FormularioComponent,
+    AlamedaComponent,
+    TelefonosComponent,
+    GuadalupeComponent,
+    PopaComponent,
   ],
   imports: [
     BrowserModule,
