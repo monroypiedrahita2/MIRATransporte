@@ -13,7 +13,6 @@ import { GuadalupeComponent } from './guadalupe/guadalupe.component';
 import { PopaComponent } from './popa/popa.component';
 import { BackButtonComponent } from './shared/components/back-button/back-button.component';
 import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos.component';
-import { HeaderCallCenterComponent } from './shared/components/header-call-center/header-call-center.component';
 import { EnviarButtonComponent } from './shared/components/enviar-button/enviar-button.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { EnviarButtonComponent } from './shared/components/enviar-button/enviar-
     PopaComponent,
     BackButtonComponent,
     LibretaTelefonosComponent,
-    HeaderCallCenterComponent,
     EnviarButtonComponent,
   ],
   imports: [
