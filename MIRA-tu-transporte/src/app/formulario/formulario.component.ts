@@ -23,6 +23,7 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit() {
+    const driver: string = this.form.get('conductor')?.value
     const name: string = this.form.get('name')?.value
     const phone: string = this.form.get('phone')?.value
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value
@@ -30,12 +31,13 @@ export class FormularioComponent implements OnInit {
     const vehiculo: string = this.form.get('vehiculo')?.value
     const personas: string = this.form.get('personas')?.value
     const comment: string = this.form.get('comment')?.value
-    const data: string = `${this.msn}   Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion} GPS: *https://www.google.com/maps/search/${lugarVotacion}*         COMUNICARSE CON: *${name}*,          Teléfono *${phone}*       NOTA: *${comment}*`
+    const data: string = `${this.msn} ========== Conductor Elegido: ${driver} ============= Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion}* GPS: https://www.google.com/maps/search/${lugarVotacion}         COMUNICARSE CON: *${name}*,          Teléfono *${phone}*       NOTA: *${comment}*`
     window.open(data)
   }
 
   initForm(): FormGroup {
     return this.fb.group({
+      driver: ['Buscar vehículo para', Validators.required],
       name: ['', Validators.required],
       phone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       LugarRecogida: ['', Validators.required],
@@ -43,6 +45,7 @@ export class FormularioComponent implements OnInit {
       vehiculo: ['', Validators.required],
       personas: ['1', Validators.required],
       comment: ['Sin observaciones'],
+      nameDriver: ['Sin observaciones'],
     })
   }
 }
