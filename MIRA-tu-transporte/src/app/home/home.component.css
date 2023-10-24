@@ -1,5 +1,7 @@
 .card-mira {
   height: 70vh;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .btns {
@@ -8,6 +10,10 @@
   height: 85%;
   /* align-items: center; */
 
+}
+
+button{
+  height: 200px;
 }
 
 

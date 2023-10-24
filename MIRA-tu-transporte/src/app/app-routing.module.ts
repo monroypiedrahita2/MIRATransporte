@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PopaComponent } from './popa/popa.component';
 import { AlamedaComponent } from './alameda/alameda.component';
 import { GuadalupeComponent } from './guadalupe/guadalupe.component';
-import { TelefonosComponent } from './telefonos/telefonos.component';
+import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos.component';
 
 const routes: Routes = [
   {
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'telefonos',
-    component: TelefonosComponent
+    component: LibretaTelefonosComponent
   },
 ];
 

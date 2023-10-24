@@ -13,12 +13,14 @@ button{
 
 .container-mira{
   height: 100vh;
+
 }
 
 .card-mira{
   background-color: white;
   border-radius: 15px;
-  padding:10px 10px;
+  padding: 10px 10px;
+
 }
 
 .red{
