@@ -6,12 +6,12 @@
   justify-content: center;
   font-family: Fraktur;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  background-color: #00389f;
+  background-color: #0b5ed7;
   margin: 8px 4px;
   padding: 40px;
 }
 
-.amarillo {
+.rojo {
   color: #fdfdfd;
   border-radius: 15px;
   display: flex;
@@ -20,7 +20,7 @@
   font-family: Fraktur;
   margin: 8px 4px;
   padding: 40px;
-  background-color: rgb(173, 173, 30);
+  background-color: #dc3545;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
 }
@@ -29,7 +29,7 @@
   color: #fdfdfd;
   border-radius: 15px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  background-color: green;
+  background-color: #198754;
   margin: 8px 4px;
   padding: 40px;
   display: flex;

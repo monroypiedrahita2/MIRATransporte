@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderCallCenterComponent implements OnInit {
 
   @Input() sede: string = "La Popa";
-  @Input() clase: "azul" | "verde" | "amarillo" = "verde";
+  @Input() clase: "azul" | "verde" | "rojo" = "verde";
 
   constructor() { }
 

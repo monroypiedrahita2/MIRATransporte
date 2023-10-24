@@ -1,8 +1,11 @@
-<div
-  class="container-header my-2 p-5 d-flex align-items-center justify-content-center"
->
-  <div class="text-center">
-    <h1>MIRA</h1>
-    <h2>tu transporte Dosquebradas</h2>
+<div lass="container-mira p-3">
+  <div
+  [class]="clase"
+  >
+    <div class="text-center">
+      <h1>{{sede}}</h1>
+      <h2>{{subText}}</h2>
+    </div>
   </div>
+  <ng-content></ng-content>
 </div>
