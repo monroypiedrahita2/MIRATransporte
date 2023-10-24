@@ -8,8 +8,8 @@
   <div class="container">
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <div class="row">
-        <div class="col-sm-6 my-2 text-center">
-          <p>¿En qué ciudad vota?</p>
+        <div class="col-xs-12 col-md-6 my-4 text-center">
+          <p>¿En qué ciudad vota la persona?</p>
           <div
             class="btn-group"
             role="group1"
@@ -51,8 +51,8 @@
           </div>
         </div>
 
-        <div class="my-4 col-sm-6 my-2 text-center">
-          <p>¿LLeva un personas con discapacidad?</p>
+        <div class="col-xs-12 col-md-6 my-4 text-center">
+          <p>¿Dentro del grupo de votantes hay personas con discapacidad?</p>
           <div
             class="btn-group"
             role="group3"
@@ -82,8 +82,10 @@
             <label class="btn btn-outline-warning" for="btnradio7">NO</label>
           </div>
         </div>
+      </div>
 
-        <div class="my-4 col-sm-6 my-2 text-center">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 my-4 text-center">
           <p>Tipo de vehículo</p>
           <div
             class="btn-group"
@@ -114,13 +116,7 @@
             <label class="btn btn-outline-primary" for="btnradio9">MOTO</label>
           </div>
         </div>
-        <div
-          class="my-4 col-sm-6 my-2 text-center"
-          *ngIf="
-            form.get('vehiculo')?.value === 'CARRO' ||
-            !form.get('vehiculo')?.value == null
-          "
-        >
+        <div class="my-4 col-xs-12 col-md-6 text-center">
           <p>¿Cuántos cupos debe tener el carro?</p>
           <div
             class="btn-group"
@@ -128,12 +124,12 @@
             aria-label="Basic radio toggle button group"
           >
             <input
+              checked
               type="radio"
               class="btn-check"
               name="btnradio5"
               id="btnradio10"
               autocomplete="off"
-              checked
               formControlName="personas"
               [value]="'1 cupo'"
             />
@@ -148,7 +144,15 @@
               formControlName="personas"
               [value]="'2 cupos'"
             />
-            <label class="btn btn-outline-primary" for="btnradio11">2</label>
+            <label
+              *ngIf="
+                form.get('vehiculo')?.value === 'CARRO' ||
+                !form.get('vehiculo')?.value == null
+              "
+              class="btn btn-outline-primary"
+              for="btnradio11"
+              >2</label
+            >
 
             <input
               type="radio"
@@ -159,7 +163,15 @@
               formControlName="personas"
               [value]="'3 cupos'"
             />
-            <label class="btn btn-outline-primary" for="btnradio12">3</label>
+            <label
+              *ngIf="
+                form.get('vehiculo')?.value === 'CARRO' ||
+                !form.get('vehiculo')?.value == null
+              "
+              class="btn btn-outline-primary"
+              for="btnradio12"
+              >3</label
+            >
 
             <input
               type="radio"
@@ -170,12 +182,22 @@
               formControlName="personas"
               [value]="'4 cupos'"
             />
-            <label class="btn btn-outline-primary" for="btnradio13">4</label>
+            <label
+              *ngIf="
+                form.get('vehiculo')?.value === 'CARRO' ||
+                !form.get('vehiculo')?.value == null
+              "
+              class="btn btn-outline-primary"
+              for="btnradio13"
+              >4</label
+            >
           </div>
         </div>
+      </div>
 
-        <div class="my-4 col-sm-6 my-2 text-center">
-          <p>¿Dispongo de vehículo?</p>
+<div class="row">
+        <div class="my-4 col-12 text-center">
+          <p>¿Dispone de carro la casa de apoyo?</p>
           <div
             class="btn-group"
             role="group2"
@@ -205,13 +227,15 @@
             <label class="btn btn-outline-warning" for="btnradio5">NO</label>
           </div>
         </div>
+</div>
 
+<div class="row">
         <div
           class="col-sm-6 mb-2"
           *ngIf="form.get('driver')?.value === 'Conductor Elegido'"
         >
           <label for="exampleFormControlInput1" class="m-0">
-           ¿Nombre del conductor?
+            ¿Nombre del conductor?
           </label>
           <select
             class="form-select"
@@ -269,9 +293,7 @@
             No pueden ser menos de 10 dígitos
           </div>
         </div>
-        <div
-          class="col-sm-6 mb-2"
-        >
+        <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
             >¿Lugar de recoger al votante?</label
           >
@@ -280,6 +302,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="LugarRecogida"
+            autocomplete="off"
           />
           <div
             *ngIf="form.get('LugarRecogida')?.touched && form.get('LugarRecogida')?.errors?.['required']"
@@ -297,6 +320,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="lugarVotacion"
+            autocomplete="off"
           />
           <div
             *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
@@ -314,9 +338,12 @@
             id="exampleFormControlTextarea1"
             rows="3"
             formControlName="comment"
+            autocomplete="off"
           ></textarea>
         </div>
-      </div>
+</div>
+
+
       <div class="d-flex justify-content-center">
         <app-back-button></app-back-button>
         <app-enviar-button></app-enviar-button>
