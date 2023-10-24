@@ -20,32 +20,41 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.initForm();
+
+    console.log(this.form.value)
   }
 
   onSubmit() {
-    const driver: string = this.form.get('conductor')?.value
-    const name: string = this.form.get('name')?.value
+    const ciudad: string = this.form.get('ciudad')?.value
+    const discap: string = this.form.get('discap')?.value
+    const tipoVehiculo: string = this.form.get('tipoVehiculo')?.value
+    const cupos: string = this.form.get('cupos')?.value
+    const disponibleVehiculo: string = this.form.get('disponibleVehiculo')?.value
+    const nameDriver: string = this.form.get('nameDriver')?.value
+    const nameVoter: string = this.form.get('nameVoter')?.value
     const phone: string = this.form.get('phone')?.value
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value
     const lugarVotacion: string = this.form.get('lugarVotacion')?.value.replace(/ /g, "-")
-    const vehiculo: string = this.form.get('vehiculo')?.value
-    const personas: string = this.form.get('personas')?.value
-    const comment: string = this.form.get('comment')?.value
-    const data: string = `${this.msn} ========== Conductor Elegido: ${driver} ============= Se necesita: *${vehiculo}*     CANTIDAD  DE  PERSONAS: *${personas}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion}* GPS: https://www.google.com/maps/search/${lugarVotacion}         COMUNICARSE CON: *${name}*,          Teléfono *${phone}*       NOTA: *${comment}*`
+    const observation: string = this.form.get('observation')?.value
+    const data: string = `${this.msn} ========== Conductor Elegido: ${nameDriver} ============= Se necesita: *${tipoVehiculo}*     CANTIDAD  DE  PERSONAS: *${cupos}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion}* GPS: https://www.google.com/maps/search/${lugarVotacion}         COMUNICARSE CON: *${nameVoter}*,          Teléfono *${phone}*       NOTA: *${observation}*`
     window.open(data)
+
+    console.log(this.form.value)
   }
 
   initForm(): FormGroup {
     return this.fb.group({
-      driver: ['Buscar vehículo para', Validators.required],
-      name: ['', Validators.required],
+      ciudad: ['Dosquebradas', Validators.required],
+      discap: ['SI', Validators.required],
+      tipoVehiculo: ['CARRO', Validators.required],
+      cupos: ['1', Validators.required],
+      disponibleVehiculo: ['SI', Validators.required],
+      nameDriver: ['Necesita carro', Validators.required],
+      nameVoter: ['', Validators.required],
       phone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       LugarRecogida: ['', Validators.required],
       lugarVotacion: ['', Validators.required],
-      vehiculo: ['', Validators.required],
-      personas: ['1', Validators.required],
-      comment: ['Sin observaciones'],
-      nameDriver: ['Sin observaciones'],
+      observation: [''],
     })
   }
 }

@@ -18,10 +18,12 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio1"
               id="btnradio1"
               autocomplete="off"
               checked
+              [value]="'Dosquebradas'"
+              formControlName="ciudad"
+              name="ciudad"
             />
             <label class="btn btn-outline-primary" for="btnradio1"
               >Dosquebradas</label
@@ -30,9 +32,11 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio1"
               id="btnradio2"
               autocomplete="off"
+              [value]="'Llevar a bodega de la POPA'"
+              formControlName="ciudad"
+              name="ciudad"
             />
             <label class="btn btn-outline-warning" for="btnradio2"
               >Pereira</label
@@ -41,9 +45,11 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio1"
               id="btnradio3"
               autocomplete="off"
+              [value]="'Santa Rosa'"
+              formControlName="ciudad"
+              name="ciudad"
             />
             <label class="btn btn-outline-danger" for="btnradio3"
               >St Rosa</label
@@ -61,23 +67,23 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio3"
               id="btnradio6"
               autocomplete="off"
+              [value]="'SI'"
               formControlName="discap"
-              [value]="'Lleva persona con discapacidad'"
+              name="discap"
             />
             <label class="btn btn-outline-danger" for="btnradio6">SI</label>
 
             <input
               type="radio"
               class="btn-check"
-              name="btnradio3"
               id="btnradio7"
               autocomplete="off"
               checked
-              formControlName="discap"
               [value]="''"
+              formControlName="discap"
+              name="discap"
             />
             <label class="btn btn-outline-warning" for="btnradio7">NO</label>
           </div>
@@ -93,25 +99,26 @@
             aria-label="Basic radio toggle button group"
           >
             <input
+              checked
               type="radio"
               class="btn-check"
-              name="btnradio4"
               id="btnradio8"
               autocomplete="off"
-              formControlName="vehiculo"
               [value]="'CARRO'"
+              formControlName="tipoVehiculo"
+              name="tipoVehiculo"
             />
             <label class="btn btn-outline-danger" for="btnradio8">CARRO</label>
 
             <input
               type="radio"
               class="btn-check"
-              name="btnradio4"
               id="btnradio9"
               autocomplete="off"
               checked
-              formControlName="vehiculo"
               [value]="'MOTO'"
+              formControlName="tipoVehiculo"
+              name="tipoVehiculo"
             />
             <label class="btn btn-outline-primary" for="btnradio9">MOTO</label>
           </div>
@@ -127,27 +134,27 @@
               checked
               type="radio"
               class="btn-check"
-              name="btnradio5"
               id="btnradio10"
               autocomplete="off"
-              formControlName="personas"
-              [value]="'1 cupo'"
+              [value]="'1'"
+              formControlName="cupos"
+              name="cupos"
             />
             <label class="btn btn-outline-primary" for="btnradio10">1</label>
 
             <input
               type="radio"
               class="btn-check"
-              name="btnradio5"
               id="btnradio11"
               autocomplete="off"
-              formControlName="personas"
-              [value]="'2 cupos'"
+              [value]="'2'"
+              formControlName="cupos"
+              name="cupos"
             />
             <label
               *ngIf="
-                form.get('vehiculo')?.value === 'CARRO' ||
-                !form.get('vehiculo')?.value == null
+                form.get('tipoVehiculo')?.value === 'CARRO' ||
+                !form.get('tipoVehiculo')?.value == null
               "
               class="btn btn-outline-primary"
               for="btnradio11"
@@ -157,16 +164,16 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio5"
               id="btnradio12"
               autocomplete="off"
-              formControlName="personas"
-              [value]="'3 cupos'"
+              [value]="'3'"
+              formControlName="cupos"
+              name="cupos"
             />
             <label
               *ngIf="
-                form.get('vehiculo')?.value === 'CARRO' ||
-                !form.get('vehiculo')?.value == null
+                form.get('tipoVehiculo')?.value === 'CARRO' ||
+                !form.get('tipoVehiculo')?.value == null
               "
               class="btn btn-outline-primary"
               for="btnradio12"
@@ -176,16 +183,16 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio5"
               id="btnradio13"
               autocomplete="off"
-              formControlName="personas"
-              [value]="'4 cupos'"
+              [value]="'4'"
+              formControlName="cupos"
+              name="cupos"
             />
             <label
               *ngIf="
-                form.get('vehiculo')?.value === 'CARRO' ||
-                !form.get('vehiculo')?.value == null
+                form.get('tipoVehiculo')?.value === 'CARRO' ||
+                !form.get('tipoVehiculo')?.value == null
               "
               class="btn btn-outline-primary"
               for="btnradio13"
@@ -195,7 +202,7 @@
         </div>
       </div>
 
-<div class="row">
+      <div class="row">
         <div class="my-4 col-12 text-center">
           <p>¿Dispone de carro la casa de apoyo?</p>
           <div
@@ -206,43 +213,39 @@
             <input
               type="radio"
               class="btn-check"
-              name="btnradio2"
               id="btnradio4"
               autocomplete="off"
-              formControlName="driver"
-              [value]="'Conductor Elegido'"
+              [value]="'SI'"
+              formControlName="disponibleVehiculo"
+              name="disponibleVehiculo"
             />
             <label class="btn btn-outline-success" for="btnradio4">SI</label>
 
             <input
               type="radio"
               class="btn-check"
-              name="btnradio2"
               id="btnradio5"
               autocomplete="off"
               checked
-              formControlName="driver"
-              [value]="'Buscar vehículo para'"
+              [value]="'NO'"
+              formControlName="disponibleVehiculo"
+              name="disponibleVehiculo"
             />
             <label class="btn btn-outline-warning" for="btnradio5">NO</label>
           </div>
         </div>
-</div>
+      </div>
 
-<div class="row">
+      <div class="row">
         <div
           class="col-sm-6 mb-2"
-          *ngIf="form.get('driver')?.value === 'Conductor Elegido'"
+          *ngIf="form.get('disponibleVehiculo')?.value === 'SI'"
         >
           <label for="exampleFormControlInput1" class="m-0">
             ¿Nombre del conductor?
           </label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            formControlName="nombreConductor"
-          >
-            <option value="MOTO">Juan Miguel Piedrahita</option>
+          <select class="form-select" formControlName="nameDriver">
+            <option value="MOTO">nombre del conductor 1</option>
             <option value="CARRO">Alexander Castañeda</option>
           </select>
         </div>
@@ -255,11 +258,11 @@
             type="string"
             class="form-control"
             id="exampleFormControlInput1"
-            formControlName="name"
+            formControlName="nameVoter"
             autocomplete="off"
           />
           <div
-            *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']"
+            *ngIf="form.get('nameVoter')?.touched && form.get('nameVoter')?.errors?.['required']"
             class="text-danger"
           >
             Campo requerido
@@ -267,7 +270,7 @@
         </div>
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
-            >Teléfono para acordar lugar de reunión</label
+            >Teléfono para contactar al votante</label
           >
           <input
             type="string"
@@ -311,24 +314,23 @@
             Campo requerido
           </div>
         </div>
+
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
             >¿Dónde llevar a la persona?</label
           >
-          <input
-            type="string"
-            class="form-control"
-            id="exampleFormControlInput1"
-            formControlName="lugarVotacion"
-            autocomplete="off"
-          />
           <div
             *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
             class="text-danger"
           >
             Campo requerido
           </div>
+
+          <select class="form-select" formControlName="lugarVotacion">
+            <option value="MOTO">LUGAR</option>
+          </select>
         </div>
+
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label m-0"
             >Observaciones</label
@@ -337,16 +339,23 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            formControlName="comment"
+            formControlName="observation"
             autocomplete="off"
           ></textarea>
         </div>
-</div>
-
+      </div>
 
       <div class="d-flex justify-content-center">
-        <app-back-button></app-back-button>
-        <app-enviar-button></app-enviar-button>
+        <button
+          type="button"
+          routerLink="../"
+          class="mx-4 rounded-5 btn-lg btn-warning"
+        >
+          <strong>Volver</strong>
+        </button>
+        <button type="button" class="mx-4 rounded-5 btn-lg btn-success">
+          Enviar
+        </button>
       </div>
     </form>
   </div>

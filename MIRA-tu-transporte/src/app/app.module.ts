@@ -11,9 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlamedaComponent } from './alameda/alameda.component';
 import { GuadalupeComponent } from './guadalupe/guadalupe.component';
 import { PopaComponent } from './popa/popa.component';
-import { BackButtonComponent } from './shared/components/back-button/back-button.component';
 import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos.component';
-import { EnviarButtonComponent } from './shared/components/enviar-button/enviar-button.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +22,7 @@ import { EnviarButtonComponent } from './shared/components/enviar-button/enviar-
     AlamedaComponent,
     GuadalupeComponent,
     PopaComponent,
-    BackButtonComponent,
     LibretaTelefonosComponent,
-    EnviarButtonComponent,
   ],
   imports: [
     BrowserModule,
