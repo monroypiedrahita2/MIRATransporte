@@ -65,6 +65,37 @@
         </div>
     </div>
 
+    <div class="my-4 col-sm-6 my-2 text-center">
+      <p>
+          Tipo de vehículo
+      </p>
+      <div class="btn-group" role="group4" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio4" id="btnradio8" autocomplete="off"  formControlName="vehiculo" [value]="'CARRO'">
+          <label class="btn btn-outline-danger" for="btnradio8">CARRO</label>
+
+          <input type="radio" class="btn-check" name="btnradio4" id="btnradio9" autocomplete="off" checked  formControlName="vehiculo" [value]="'MOTO'">
+          <label class="btn btn-outline-primary" for="btnradio9">MOTO</label>
+      </div>
+  </div>
+    <div class="my-4 col-sm-6 my-2 text-center" *ngIf="form.get('vehiculo')?.value === 'CARRO' || !form.get('vehiculo')?.value == null ">
+      <p>
+          ¿Cuántos cupos debe tener el carro?
+      </p>
+      <div class="btn-group" role="group5" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio5" id="btnradio10" autocomplete="off" checked  formControlName="personas" [value]="'1 cupo'">
+          <label class="btn btn-outline-primary" for="btnradio10">1</label>
+
+          <input type="radio" class="btn-check" name="btnradio5" id="btnradio11" autocomplete="off"  formControlName="personas" [value]="'2 cupos'">
+          <label class="btn btn-outline-primary" for="btnradio11">2</label>
+
+          <input type="radio" class="btn-check" name="btnradio5" id="btnradio12" autocomplete="off"  formControlName="personas" [value]="'3 cupos'">
+          <label class="btn btn-outline-primary" for="btnradio12">3</label>
+
+          <input type="radio" class="btn-check" name="btnradio5" id="btnradio13" autocomplete="off" formControlName="personas" [value]="'4 cupos'">
+          <label class="btn btn-outline-primary" for="btnradio13">4</label>
+      </div>
+  </div>
+
 
         <div class="col-sm-6 mb-2">
           <label for="exampleFormControlInput1" class="m-0"
@@ -75,6 +106,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="name"
+            autocomplete="off"
           />
           <div
             *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']"
@@ -92,6 +124,7 @@
             class="form-control"
             id="exampleFormControlInput1"
             formControlName="phone"
+            autocomplete="off"
           />
           <div
             *ngIf="
@@ -144,36 +177,6 @@
           Campo requerido
         </div>
         </div>
-        <div class="my-4 col-sm-6 my-2 text-center">
-          <p>
-              Tipo de vehículo
-          </p>
-          <div class="btn-group" role="group4" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio4" id="btnradio8" autocomplete="off"  formControlName="vehiculo" [value]="'CARRO'">
-              <label class="btn btn-outline-danger" for="btnradio8">CARRO</label>
-
-              <input type="radio" class="btn-check" name="btnradio4" id="btnradio9" autocomplete="off" checked  formControlName="vehiculo" [value]="'MOTO'">
-              <label class="btn btn-outline-primary" for="btnradio9">MOTO</label>
-          </div>
-      </div>
-        <div class="my-4 col-sm-6 my-2 text-center" *ngIf="form.get('vehiculo')?.value === 'CARRO' || !form.get('vehiculo')?.value == null ">
-          <p>
-              ¿Cuántos cupos debe tener el carro?
-          </p>
-          <div class="btn-group" role="group5" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="btnradio5" id="btnradio10" autocomplete="off" checked  formControlName="personas" [value]="'1 cupo'">
-              <label class="btn btn-outline-primary" for="btnradio10">1</label>
-
-              <input type="radio" class="btn-check" name="btnradio5" id="btnradio11" autocomplete="off"  formControlName="personas" [value]="'2 cupos'">
-              <label class="btn btn-outline-primary" for="btnradio11">2</label>
-
-              <input type="radio" class="btn-check" name="btnradio5" id="btnradio12" autocomplete="off"  formControlName="personas" [value]="'3 cupos'">
-              <label class="btn btn-outline-primary" for="btnradio12">3</label>
-
-              <input type="radio" class="btn-check" name="btnradio5" id="btnradio13" autocomplete="off" formControlName="personas" [value]="'4 cupos'">
-              <label class="btn btn-outline-primary" for="btnradio13">4</label>
-          </div>
-      </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label m-0"
             >Observaciones</label
