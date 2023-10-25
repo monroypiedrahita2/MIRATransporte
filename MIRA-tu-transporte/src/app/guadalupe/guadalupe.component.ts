@@ -8,6 +8,7 @@ import { CONDUCTORES_GUADALUPE } from '../shared/constants/conductores/guadalupe
 })
 export class GuadalupeComponent implements OnInit {
   conductores: any[] = CONDUCTORES_GUADALUPE; ///
+  phone: string = '3176158612'
 
   constructor() {}
 

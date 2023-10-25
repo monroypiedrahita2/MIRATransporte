@@ -1,6 +1,6 @@
 <div class="form">
   <div class="container">
-    <!-- ******** PRIMER FORMULARIO ************* -->
+    <!-- ******** PRIMER FORMULARIO DE USO ************* -->
 
     <form (ngSubmit)="onSubmitUse()" [formGroup]="formUse">
       <div class="row">
@@ -101,7 +101,7 @@
           </button>
           <button
             type="submit"
-            (onClick)="onSubmit()"
+            (onClick)="onSubmitUse()"
             [disabled]="formUse.invalid"
             [ngClass]="{ 'disabled-button': formUse.invalid }"
             class="mx-4 rounded-5 btn-lg btn-danger"
@@ -112,9 +112,11 @@
       </div>
     </form>
 
-    <!-- *********** SEGUNDO FORMULARIO **************-->
+    <!-- ******** FIN PRIMER FORMULARIO DE USO ************* -->
 
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <!-- ***********INICIO SEGUNDO FORMULARIO SOLICITU VEHICULO **************-->
+
+    <form (ngSubmit)="onSubmit(telefono)" [formGroup]="form">
       <div *ngIf="formUse.get('vehiculoUso')?.value === 'NO'">
         <div class="row">
           <div class="col-xs-12 my-4 text-center">
@@ -430,7 +432,7 @@
         </button>
         <button
           type="submit"
-          (onClick)="onSubmit()"
+          (onClick)="onSubmit(telefono)"
           [disabled]="form.invalid"
           [ngClass]="{ 'disabled-button': form.invalid }"
           class="mx-4 rounded-5 btn-lg btn-primary"
@@ -440,7 +442,8 @@
       </div>
     </form>
 
-    <!-- **********TERCER FORMULARIO ************* -->
+    <!-- **********FIN SEGUNDO FORMULARIO SOLICITU DE VEHICULO  ************* -->
+    <!-- **********INICIO DE TERCER FORMULARIO ACTIVAR VEHICULO ************* -->
 
     <form (ngSubmit)="onSubmitActive()" [formGroup]="formActive">
       <div *ngIf="formUse.get('vehiculoUso')?.value === 'activar'">
@@ -474,7 +477,7 @@
           </button>
           <button
             type="submit"
-            (onClick)="onSubmit()"
+            (onClick)="onSubmitActive()"
             [disabled]="formActive.invalid"
             [ngClass]="{ 'disabled-button': formActive.invalid }"
             class="mx-4 rounded-5 btn-lg btn-success"

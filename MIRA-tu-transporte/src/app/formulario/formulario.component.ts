@@ -14,12 +14,10 @@ import { Location } from '@angular/common';
 })
 export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
+  @Input() telefono: string = '';
   arrayPuestos = PUESTOS_VOTACION;
   ocupaciones: string = '3008318652';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
-
-  alameda: string = '3176158612';
-  popa: string = '3176158612';
   text: string = '&text=';
   form!: FormGroup;
   formUse!: FormGroup;
@@ -35,6 +33,8 @@ export class FormularioComponent implements OnInit {
     this.formUse = this.initFormUse();
     this.formActive = this.initFormActive();
   }
+
+  // ++++++++++++++++FORMULARIO DE ACTIVACION +++++++++++++++++++++
 
   onSubmitActive() {
     const nameDriverActive: string =
@@ -53,6 +53,11 @@ export class FormularioComponent implements OnInit {
       nameDriverActive: ['', Validators.required],
     });
   }
+
+
+  // +++++++++++++++++++++ FIN PRIMER FORMULARIO +++++++++++++++++++++++
+
+  // +++++++++++++++++++++++FORMULARIO DE USO ++++++++++++++++++++++++++
 
   onSubmitUse() {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
@@ -75,7 +80,7 @@ export class FormularioComponent implements OnInit {
 
   // ++++++++++++++++ SEGUNDO  FORMULARIO ++++++++++++++++++++++++++
 
-  onSubmit() {
+  onSubmit(tel: string) {
     const ciudad: string = this.form.get('ciudad')?.value;
     var transbordo = '';
 
@@ -104,7 +109,7 @@ export class FormularioComponent implements OnInit {
       .get('lugarVotacion')
       ?.value.replace(/ /g, '-');
     const observation: string = this.form.get('observation')?.value;
-    const data: string = `
+    const msn: string = `
     ====================
     Necesitamos: *${tipoVehiculo}*  ${cupos}
     ====================
@@ -119,6 +124,9 @@ export class FormularioComponent implements OnInit {
     ${lugarVotacion}
     ====================
     ${observation}   `;
+
+    const data = this.apiWp + tel + this.text + msn;
+
 
     console.log(data);
 
