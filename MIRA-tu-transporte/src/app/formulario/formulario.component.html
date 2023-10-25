@@ -237,16 +237,40 @@
           </div>
         </div>
 
+        <div
+          *ngIf="form.get('tipoVehiculo')?.value === 'CARRO'"
+          class="col-xs-12 col-md-6 my-4 text-center"
+        >
+          <p>¿Se necesita transportar silla de ruedas?</p>
+          <div
+            class="btn-group"
+            role="group3"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              id="btnradio6"
+              autocomplete="off"
+              [value]="'SI'"
+              formControlName="discap"
+              name="discap"
+            />
+            <label class="btn btn-outline-danger" for="btnradio6">SI</label>
 
-
-
-
-
-
-
-
-
-
+            <input
+              type="radio"
+              class="btn-check"
+              id="btnradio7"
+              autocomplete="off"
+              checked
+              [value]="'NO'"
+              formControlName="discap"
+              name="discap"
+            />
+            <label class="btn btn-outline-warning" for="btnradio7">NO</label>
+          </div>
+        </div>
       </div>
     </form>
   </div>
