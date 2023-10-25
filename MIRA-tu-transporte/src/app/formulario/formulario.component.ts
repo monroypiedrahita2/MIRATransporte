@@ -16,7 +16,7 @@ export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
   @Input() telefono: string = '';
   arrayPuestos = PUESTOS_VOTACION;
-  ocupaciones: string = '3008318652';
+  ocupaciones: string = '573008318652';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
   text: string = '&text=';
   form!: FormGroup;
@@ -99,7 +99,7 @@ export class FormularioComponent implements OnInit {
     const tipoVehiculo: string = this.form.get('tipoVehiculo')?.value;
     const cupos: string =
       this.form.get('tipoVehiculo')?.value === 'MOTO'
-        ? ' '
+        ? '1'
         : `Cupos: *${this.form.get('cupos')?.value}*`;
 
     const nameVoter: string = this.form.get('nameVoter')?.value;
@@ -109,11 +109,14 @@ export class FormularioComponent implements OnInit {
       .get('lugarVotacion')
       ?.value.replace(/ /g, '-');
     const observation: string = this.form.get('observation')?.value;
+    const gps: string = 'https://www.google.com/maps/search/Risaralda,-Dosquebradas,';
+    const gpsVotacion: string = this.form.get('ciudad')?.value === 'Dosquebradas' ?
+    'Ubicación GPS lugar de votación:%0A' + gps + lugarVotacion: '';
     const msn: string = `
     =======================%0A
     Necesitamos:*${tipoVehiculo}*
     %0A=======================%0A
-    ${cupos} personas
+    ${cupos} pasajeros
     %0A=======================%0A
     ${discap}
     %0A=======================%0A
@@ -121,13 +124,13 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Recoger en: *${LugarRecogida}*
     %0A=======================%0A
-    Nombre contacto:  ${nameVoter}
+    Nombre contacto:  *${nameVoter}*
     %0A=======================%0A
     Número de contacto: ${phone}
     %0A=======================%0A
     ${lugarVotacion}
-    Ubicación GPS lugar de votación:
-    %0Ahttps://www.google.com/maps/search/Risaralda,-Dosquebradas,${lugarVotacion}%0A
+    %0A=======================%0A
+    ${gpsVotacion}
     %0A=======================%0A
     ${observation}
     %0A=======================%0A
