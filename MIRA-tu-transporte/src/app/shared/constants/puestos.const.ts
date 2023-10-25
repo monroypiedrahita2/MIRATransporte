@@ -148,21 +148,6 @@ export const PUESTOS_VOTACION = [
       'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLEGIO-NUESTRA-SRA-DE-GUADALUPE',
   },
   {
-    puesto: 'COLEGIO NUEVA GRANADA',
-    barrio: 'San Diego',
-    direccion: 'CLL 51 CRA 22A',
-    ubicacion:
-      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLEGIO-NUEVA-GRANADA',
-  },
-
-  {
-    puesto: 'COLEGIO NUEVA GRANADA',
-    barrio: 'San Diego',
-    direccion: 'CLL 51 CRA 22A',
-    ubicacion:
-      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLEGIO-NUEVA-GRANADA',
-  },
-  {
     puesto: 'COLEGIO NUESTRA SRA DE GUADALUPE SEDE 2',
     barrio: 'GUADALUPE',
     direccion: 'Cr 14 Cll 36 y 38',
@@ -215,43 +200,71 @@ export const PUESTOS_VOTACION = [
     puesto: 'COLEGIO VILLA FANNY',
     barrio: 'JAPON',
     direccion: 'CRA 17 # 8C 18',
-    ubicacion:'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLEGIO-VILLA-FANNY',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLEGIO-VILLA-FANNY',
   },
   {
-    puesto: "COLISEO ESTADIO DOSQUEBRADAS",
-    barrio: "VIA LA ROMELIA",
-    direccion: "KM 1 VIA ROMELIA EL POLLO",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLISEO-ESTADIO-DOSQUEBRADAS",
+    puesto: 'COLISEO ESTADIO DOSQUEBRADAS',
+    barrio: 'VIA LA ROMELIA',
+    direccion: 'KM 1 VIA ROMELIA EL POLLO',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-COLISEO-ESTADIO-DOSQUEBRADAS',
   },
   {
-    puesto: "CTRO DE RECLUSIÓN LA BADEA",
-    barrio: "LA BADEA",
-    direccion: "CTRO DE RECLUSIÓN LA BADEA",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-CTRO-DE-RECLUSIÓN-LA-BADEA",
+    puesto: 'CTRO DE RECLUSIÓN LA BADEA',
+    barrio: 'LA BADEA',
+    direccion: 'CTRO DE RECLUSIÓN LA BADEA',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-CTRO-DE-RECLUSIÓN-LA-BADEA',
   },
   {
-    puesto: "CTRO DOCENTE CAMILO TORRES",
-    barrio: "CAMILO TORRES",
-    direccion: "PLAN 3 ZONA 6 CAMILO TORRES",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-CTRO-DOCENTE-CAMILO-TORRES",
+    puesto: 'CTRO DOCENTE CAMILO TORRES',
+    barrio: 'CAMILO TORRES',
+    direccion: 'PLAN 3 ZONA 6 CAMILO TORRES',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-CTRO-DOCENTE-CAMILO-TORRES',
   },
   {
-    puesto: "ESCUELA LA ESNEDA",
-    barrio: "LA ESNEDA",
-    direccion: "Manzana 15 Casa 10",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-ESCUELA-LA-ESNEDA",
+    puesto: 'ESCUELA LA ESNEDA',
+    barrio: 'LA ESNEDA',
+    direccion: 'Manzana 15 Casa 10',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-ESCUELA-LA-ESNEDA',
   },
   {
-    puesto: "ESCUELA SAN DIEGO",
-    barrio: "SAN DIEGO",
-    direccion: "CLL 56 # 19 58 SAN DIEGO",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-ESCUELA-SAN-DIEGO",
+    puesto: 'ESCUELA POLICARPA SALAVARRIETA',
+    barrio: 'SANTA ISABEL',
+    direccion: 'CAMPESTRE C MZ 8',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-ESCUELA-POLICARPA-SALAVARRIETA',
   },
   {
-    puesto: "I E AGUSTIN NIETO CABALLERO",
-    barrio: "FRAILES",
-    direccion: "CRA 43 # 15A  29 SANTIAGO LONDOÑO",
-    ubicacion: "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-I-E-AGUSTIN-NIETO-CABALLERO",
+    puesto: 'ESCUELA SAN DIEGO',
+    barrio: 'SAN DIEGO',
+    direccion: 'CLL 56 # 19 58 SAN DIEGO',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-ESCUELA-SAN-DIEGO',
+  },
+  {
+    puesto: 'I E AGUSTIN NIETO CABALLERO',
+    barrio: 'FRAILES',
+    direccion: 'CRA 43 # 15A  29 SANTIAGO LONDOÑO',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-I-E-AGUSTIN-NIETO-CABALLERO',
+  },
+  {
+    puesto: 'I E LA AURORA',
+    barrio: 'LA AURORA',
+    direccion: 'CRA 21 #11B  07',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-I-E-LA-AURORA',
+  },
+  {
+    puesto: 'I E RENACIMIENTO',
+    barrio: 'LA ROMELIA',
+    direccion: 'CR 16 # 79 42 LA ROMELIA',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-I-E-RENACIMIENTO',
   },
   {
     puesto: 'I E SANTA SOFIA',
@@ -268,6 +281,13 @@ export const PUESTOS_VOTACION = [
       'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-IE-MARIA-AUXILIADORA',
   },
   {
+    puesto: 'IE SANTA ISABEL',
+    barrio: 'SANTA ISABEL',
+    direccion: 'DIAG 30 C # 5 59',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-IE-SANTA-ISABEL',
+  },
+  {
     puesto: 'INST. EDUCATIVA BOSQUES DE LA ACUARELA',
     barrio: 'BOSQUES DE LA ACUARELA',
     direccion: 'CLL 70 TEJARES DE LA LOMA',
@@ -275,9 +295,59 @@ export const PUESTOS_VOTACION = [
       'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-INST.-EDUCATIVA-BOSQUES-DE-LA-ACUARELA',
   },
   {
-    "puesto": "LAS MARCADAS ALTO DEL TORO",
-    "barrio": "DESCONOCIDO",
-    "direccion": "ESC. ALTO DEL TORO",
-    "ubicacion": "https://www.google.com/maps/search/Risaralda,-Dosquebradas,-LAS-MARCADAS-ALTO-DEL-TORO"
-  }
+    puesto: 'INSTITUCION EDUCATIVA BOMBAY',
+    barrio: 'BOMBAY',
+    direccion: 'CARRERA 11 CALLE 65 Y 66 BOMBAY III',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-INSTITUCION-EDUCATIVA-BOMBAY',
+  },
+  {
+    puesto: 'LAS MARCADAS ALTO DEL TORO',
+    barrio: 'DESCONOCIDO',
+    direccion: 'ESC. ALTO DEL TORO',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-LAS-MARCADAS-ALTO-DEL-TORO',
+  },
+  {
+    puesto: 'LAS MARCADAS FRAILES',
+    barrio: 'DESCONOCIDO',
+    direccion: 'ESCUELA FRAILES',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-LAS-MARCADAS-FRAILES',
+  },
+  {
+    puesto: 'MEGACOLEGIO BERNARDO LOPEZ PEREZ',
+    barrio: 'CAMPRESTRE B',
+    direccion: 'CRA 4 # 16 03',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-MEGACOLEGIO-BERNARDO-LOPEZ-PEREZ',
+  },
+  {
+    puesto: 'PUESTO CENSO I E MANUELITA SAENZ',
+    barrio: 'CAMPRESTE B',
+    direccion: 'CRA 2 # 17B  13 CAMPESTRE B',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-PUESTO-CENSO-I-E-MANUELITA-SAENZ',
+  },
+  {
+    puesto: 'SERRANIA ALTO DEL NUDO (AGUA AZUL)',
+    barrio: 'DESCONOCIDO',
+    direccion: 'VEREDA AGUA AZUL',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-SERRANIA-ALTO-DEL-NUDO-(AGUA-AZUL)',
+  },
+  {
+    puesto: 'SERRANIA ALTO DEL NUDO (EL ESTANQUILLO)',
+    barrio: 'DESCONOCIDO',
+    direccion: 'VEREDA EL ESTANQUILLO',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-SERRANIA-ALTO-DEL-NUDO-(EL-ESTANQUILLO)',
+  },
+  {
+    puesto: 'SERRANIA ALTO NUDO LA UNION',
+    barrio: 'ALTO DEL NUDO',
+    direccion: 'LA UNION COLEGIO CARTAGENA',
+    ubicacion:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,-SERRANIA-ALTO-NUDO-LA-UNION',
+  },
 ];
