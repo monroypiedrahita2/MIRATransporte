@@ -81,16 +81,16 @@ export class FormularioComponent implements OnInit {
 
     if (ciudad === 'Pereira') {
       transbordo =
-        'Vota en Pereira: *llevar a la iglesia de la Popa para trasbordo*';
+        'Vota en Pereira: *llevar a la iglesia de La Popa para transbordo*';
     } else if (ciudad === 'Santa Rosa') {
       transbordo =
-        'Vota en Santa Rosa: *Llevar a la iglesia de la Alameda para transbordo*';
+        'Vota en Santa Rosa: *Llevar a la iglesia de Alameda para transbordo*';
     }
 
 
-    const discap: string = this.form.get('discap')?.value;
+    const discap: string = this.form.get('discap')?.value === 'SI' ? 'Con espacio para silla de ruedas' : ' ';
     const tipoVehiculo: string = this.form.get('tipoVehiculo')?.value;
-    const cupos: string = this.form.get('cupos')?.value;
+    const cupos: string = this.form.get('tipoVehiculo')?.value === 'MOTO' ? ' ' : `Cupos: *${this.form.get('cupos')?.value}*`  ;
 
     const nameVoter: string = this.form.get('nameVoter')?.value;
     const phone: string = this.form.get('phone')?.value;
@@ -99,7 +99,20 @@ export class FormularioComponent implements OnInit {
       .get('lugarVotacion')
       ?.value.replace(/ /g, '-');
     const observation: string = this.form.get('observation')?.value;
-    const data: string = `==================== Necesitamos: *${tipoVehiculo}*  Cupos: *${cupos}* ==================== ${transbordo} ====================`;
+    const data: string = `
+    ====================
+    Necesitamos: *${tipoVehiculo}*  ${cupos}
+    ====================
+    ${discap}
+    ====================
+    ${transbordo}
+    ====================
+    Recoger en: *${LugarRecogida}*
+    ====================
+    Nombre:  ${nameVoter} Número de contacto: ${phone}
+    ====================
+    ${observation}
+    ====================    `;
 
 
     console.log(data);
@@ -128,7 +141,7 @@ export class FormularioComponent implements OnInit {
         ],
       ],
       LugarRecogida: ['', Validators.required],
-      lugarVotacion: ['', Validators.required],
+      lugarVotacion: ['',],
       observation: [''],
     });
   }
