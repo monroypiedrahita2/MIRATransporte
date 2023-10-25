@@ -21,7 +21,7 @@
               name="vehiculoUso"
             />
             <label class="btn btn-outline-danger" for="btnradio4"
-              >Vehículo en uso</label
+              >Vehículo ocupado</label
             >
 
             <input
@@ -37,6 +37,19 @@
             <label class="btn btn-outline-primary" for="btnradio5"
               >Solicitud vehículo</label
             >
+            <input
+              type="radio"
+              class="btn-check"
+              id="btnradio20"
+              autocomplete="off"
+              checked
+              [value]="'activar'"
+              formControlName="vehiculoUso"
+              name="vehiculoUso"
+            />
+            <label class="btn btn-outline-success" for="btnradio20"
+              >Vehículo desocupado</label
+            >
           </div>
         </div>
         <div
@@ -49,14 +62,29 @@
               ¿Nombre del conductor?
             </label>
             <select class="form-select" formControlName="nameDriver">
-              <option value="MOTO">Juan Miguel Piedrahita</option>
-              <option value="CARRO">Alexander Castañeda</option>
+              <option value="Juan Miguel Piedrahita">
+                Juan Miguel Piedrahita
+              </option>
+              <option value="Alexander Castañeda">Alexander Castañeda</option>
+            </select>
+          </div>
+          <div>
+            <label for="exampleFormControlInput1" class="mt-5 text-center">
+              ¿Tiempo de ocupación?
+            </label>
+            <select class="form-select" formControlName="timeOut">
+              <option value="30 minutos">30 minutos</option>
+              <option value="45 minutos">45 minutos</option>
+              <option value="60 minutos">1 hora</option>
+              <option value="90 minutos">1 hora y 30 min</option>
+              <option value="120 minutos">2 horas</option>
+              <option value="Retirado">Retiro total</option>
             </select>
           </div>
         </div>
       </div>
 
-      <div *ngIf="formUse.get('vehiculoUso')?.value !== 'NO'" class="row">
+      <div *ngIf="formUse.get('vehiculoUso')?.value === 'SI'" class="row">
         <div class="my-5 d-flex justify-content-center">
           <button
             type="button"
@@ -69,8 +97,8 @@
             type="submit"
             (onClick)="onSubmit()"
             [disabled]="formUse.invalid"
-            [ngClass]="{ 'disabled-button': form.invalid }"
-            class="mx-4 rounded-5 btn-lg btn-primary"
+            [ngClass]="{ 'disabled-button': formUse.invalid }"
+            class="mx-4 rounded-5 btn-lg btn-danger"
           >
             Enviar
           </button>
@@ -78,7 +106,7 @@
       </div>
     </form>
 
-    <!-- Segundo Formulario -->
+    <!-- *********** SEGUNDO FORMULARIO **************-->
 
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <div *ngIf="formUse.get('vehiculoUso')?.value === 'NO'">
@@ -345,7 +373,7 @@
             </div>
           </div>
 
-          <div class="col-sm-6 mb-2">
+          <div *ngIf="form.get('ciudad')?.value === 'Dosquebradas'" class="col-sm-6 mb-2">
             <label for="exampleFormControlInput1" class="m-0"
               >¿Dónde llevar a la persona?</label
             >
@@ -400,6 +428,49 @@
         >
           Enviar
         </button>
+      </div>
+    </form>
+
+    <!-- **********TERCER FORMULARIO ************* -->
+
+    <form (ngSubmit)="onSubmitActive()" [formGroup]="formActive">
+      <div *ngIf="formUse.get('vehiculoUso')?.value === 'activar'">
+        <div class="row text-center">
+          <h2 class="my-2">Nombre del conductor que se va activar:</h2>
+
+          <div>
+            <label for="exampleFormControlInput30" class="mt-5 text-center">
+              ¿Nombre del conductor desocupado?
+            </label>
+            <select class="form-select" formControlName="nameDriverActive">
+              <option value="Juan Miguel Piedrahita">
+                Juan Miguel Piedrahita
+              </option>
+              <option value="Alexander Castañeda">Alexander Castañeda</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="formUse.get('vehiculoUso')?.value === 'activar'" class="row">
+        <div class="my-5 d-flex justify-content-center">
+          <button
+            type="button"
+            routerLink="../"
+            class="mx-4 rounded-5 btn-lg btn-warning"
+          >
+            <strong>Volver</strong>
+          </button>
+          <button
+            type="submit"
+            (onClick)="onSubmit()"
+            [disabled]="formActive.invalid"
+            [ngClass]="{ 'disabled-button': formActive.invalid }"
+            class="mx-4 rounded-5 btn-lg btn-success"
+          >
+            Enviar
+          </button>
+        </div>
       </div>
     </form>
   </div>
