@@ -68,7 +68,7 @@
           <button
             type="submit"
             (onClick)="onSubmit()"
-            [disabled]="form.invalid"
+            [disabled]="formUse.invalid"
             [ngClass]="{ 'disabled-button': form.invalid }"
             class="mx-4 rounded-5 btn-lg btn-primary"
           >
@@ -239,9 +239,9 @@
 
         <div
           *ngIf="form.get('tipoVehiculo')?.value === 'CARRO'"
-          class="col-xs-12 col-md-6 my-4 text-center"
+          class="col-12 my-4 text-center"
         >
-          <p>¿Se necesita transportar silla de ruedas?</p>
+          <p>¿Necesita transportar silla de ruedas?</p>
           <div
             class="btn-group"
             role="group3"
@@ -271,6 +271,135 @@
             <label class="btn btn-outline-warning" for="btnradio7">NO</label>
           </div>
         </div>
+
+        <div
+          *ngIf="form.get('tipoVehiculo')?.value !== 'null'"
+          class="row my-5"
+        >
+          <div class="col-sm-6 mb-2">
+            <label for="exampleFormControlInput1" class="m-0"
+              >Nombre del votante</label
+            >
+            <input
+              type="string"
+              class="form-control"
+              id="exampleFormControlInput1"
+              formControlName="nameVoter"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="form.get('nameVoter')?.touched && form.get('nameVoter')?.errors?.['required']"
+              class="text-danger"
+            >
+              Campo requerido
+            </div>
+          </div>
+
+          <div class="col-sm-6 mb-2">
+            <label for="exampleFormControlInput1" class="m-0"
+              >Teléfono para contactar al votante</label
+            >
+            <input
+              type="string"
+              class="form-control"
+              id="exampleFormControlInput1"
+              formControlName="phone"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="
+                form.get('phone')?.touched &&
+                form.get('phone')?.value.length > 10
+              "
+              class="text-danger"
+            >
+              Verifique, solo pueden ser 10 digitos
+            </div>
+            <div
+              *ngIf="
+                form.get('phone')?.touched &&
+                form.get('phone')?.value.length < 10
+              "
+              class="text-danger"
+            >
+              No pueden ser menos de 10 dígitos
+            </div>
+          </div>
+
+          <div class="col-sm-6 mb-2">
+            <label for="exampleFormControlInput1" class="m-0"
+              >¿Lugar de recoger al votante?</label
+            >
+            <input
+              type="string"
+              class="form-control"
+              id="exampleFormControlInput1"
+              formControlName="LugarRecogida"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="form.get('LugarRecogida')?.touched && form.get('LugarRecogida')?.errors?.['required']"
+              class="text-danger"
+            >
+              Campo requerido
+            </div>
+          </div>
+
+          <div class="col-sm-6 mb-2">
+            <label for="exampleFormControlInput1" class="m-0"
+              >¿Dónde llevar a la persona?</label
+            >
+
+            <select class="form-select" formControlName="lugarVotacion">
+              <option *ngFor="let puesto of arrayPuestos" [value]="puesto.id">
+                {{ puesto.puesto }}
+              </option>
+            </select>
+            <div
+              *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
+              class="text-danger"
+            >
+              Campo requerido
+            </div>
+          </div>
+
+          <div class="row mx-0 p-0">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Observaciones</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                formControlName="observation"
+                autocomplete="off"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="formUse.get('vehiculoUso')?.value === 'NO'"
+        class="my-5 d-flex justify-content-center"
+      >
+        <button
+          type="button"
+          routerLink="../"
+          class="mx-4 rounded-5 btn-lg btn-warning"
+        >
+          <strong>Volver</strong>
+        </button>
+        <button
+          type="submit"
+          (onClick)="onSubmit()"
+          [disabled]="form.invalid"
+          [ngClass]="{ 'disabled-button': form.invalid }"
+          class="mx-4 rounded-5 btn-lg btn-primary"
+        >
+          Enviar
+        </button>
       </div>
     </form>
   </div>

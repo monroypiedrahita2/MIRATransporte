@@ -83,7 +83,7 @@ export class FormularioComponent implements OnInit {
     return this.fb.group({
       ciudad: ['Dosquebradas', Validators.required],
       discap: ['NO', Validators.required],
-      tipoVehiculo: ['', Validators.required],
+      tipoVehiculo: ['null', Validators.required],
       cupos: ['1', Validators.required],
       nameVoter: ['', Validators.required],
       phone: [
