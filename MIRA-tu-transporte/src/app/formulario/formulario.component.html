@@ -5,7 +5,7 @@
     <form (ngSubmit)="onSubmitUse()" [formGroup]="formUse">
       <div class="row">
         <div class="my-2 col-12 text-center">
-          <h2>Reportar:</h2>
+          <h1><strong> Reportar:</strong></h1>
           <div
             class="btn-group"
             role="group2"
@@ -57,13 +57,19 @@
           class="col-sm-6"
           class="row mx-0"
         >
+          <div class="text-center">
+            <h2 class="my-2">Nombre del conductor ocupado:</h2>
+          </div>
           <div>
             <label for="exampleFormControlInput1" class="mt-5 text-center">
               ¿Nombre del conductor?
             </label>
             <select class="form-select" formControlName="nameDriver">
-              <option value="Juan Miguel Piedrahita">
-                Juan Miguel Piedrahita
+              <option
+                *ngFor="let conductor of conductores"
+                value="conductor.name"
+              >
+                {{ conductor.name }}
               </option>
               <option value="Alexander Castañeda">Alexander Castañeda</option>
             </select>
@@ -443,11 +449,14 @@
 
           <div>
             <label for="exampleFormControlInput30" class="mt-5 text-center">
-              ¿Nombre del conductor desocupado?
+              ¿Nombre del conductor disponible?
             </label>
             <select class="form-select" formControlName="nameDriverActive">
-              <option value="Juan Miguel Piedrahita">
-                Juan Miguel Piedrahita
+              <option
+                *ngFor="let conductor of conductores"
+                value="conductor.name"
+              >
+                {{ conductor.name }}
               </option>
               <option value="Alexander Castañeda">Alexander Castañeda</option>
             </select>

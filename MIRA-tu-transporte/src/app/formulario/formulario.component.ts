@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -13,6 +13,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent implements OnInit {
+  @Input() conductores: any[] = [];
+
   arrayPuestos = PUESTOS_VOTACION;
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
   guadalupe: string = '3008318652';
@@ -24,6 +26,8 @@ export class FormularioComponent implements OnInit {
   formUse!: FormGroup;
   formActive!: FormGroup;
   myField = new FormControl();
+
+
 
   constructor(private readonly fb: FormBuilder, private location: Location,) {}
 
