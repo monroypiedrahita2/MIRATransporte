@@ -15,8 +15,7 @@ import { Location } from '@angular/common';
 export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
   arrayPuestos = PUESTOS_VOTACION;
-  // ocupaciones: string = '3008318652';
-  ocupaciones: string = '3128734217';
+  ocupaciones: string = '3008318652';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
 
   alameda: string = '3176158612';
