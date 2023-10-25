@@ -37,7 +37,11 @@ export class FormularioComponent implements OnInit {
 
   onSubmitActive() {
     const nameDriverActive: string = this.formActive.get('nameDriverActive')?.value
-    const mensajeActive: string = `<<<<<<<<<<< El conductor *${nameDriverActive}* se encuentra *DISPONIBLE* >>>>>>>>>>`
+    const mensajeActive: string =
+    `<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    El conductor *${nameDriverActive}*
+    se encuentra *DISPONIBLE*
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`
     console.log(mensajeActive)
 
     // window.open(data);
@@ -57,7 +61,12 @@ export class FormularioComponent implements OnInit {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
     const nameDriver: string = this.formUse.get('nameDriver')?.value;
     const timeOut: string = this.formUse.get('timeOut')?.value
-    const mensajeVehiculoEnUSo: string = `"""""""""""  El conductor: *${nameDriver}* esta OCUPADO por *${timeOut}* """"""""""""""""" `
+    const mensajeVehiculoEnUSo: string =
+    `""""""""""""""""""""""""""""
+    El conductor: *${nameDriver}*
+    """""""""""""""""""""""""""""
+    esta OCUPADO por *${timeOut}*
+    """"""""""""""""""""""""""""" `
     console.log(mensajeVehiculoEnUSo);
     this.formUse = this.initFormUse();
     this.goBack()
@@ -111,8 +120,11 @@ export class FormularioComponent implements OnInit {
     ====================
     Nombre:  ${nameVoter} Número de contacto: ${phone}
     ====================
-    ${observation}
-    ====================    `;
+    ${lugarVotacion}
+    ====================
+    ${observation}   `;
+
+
 
 
     console.log(data);
