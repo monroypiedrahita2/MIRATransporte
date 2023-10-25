@@ -121,7 +121,9 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Recoger en: *${LugarRecogida}*
     %0A=======================%0A
-    Nombre:  ${nameVoter} Número de contacto: ${phone}
+    Nombre contacto:  ${nameVoter}
+    %0A=======================%0A
+    Número de contacto: ${phone}
     %0A=======================%0A
     ${lugarVotacion}
     %0A=======================%0A
@@ -156,7 +158,7 @@ export class FormularioComponent implements OnInit {
       ],
       LugarRecogida: ['', Validators.required],
       lugarVotacion: [''],
-      observation: [''],
+      observation: ['Sin observaciones'],
     });
   }
 

@@ -390,7 +390,7 @@
             >
 
             <select class="form-select" formControlName="lugarVotacion">
-              <option *ngFor="let puesto of arrayPuestos" [value]="puesto.id">
+              <option *ngFor="let puesto of arrayPuestos" [value]="puesto.puesto">
                 {{ puesto.puesto }}
               </option>
             </select>
