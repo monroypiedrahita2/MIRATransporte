@@ -110,27 +110,30 @@ export class FormularioComponent implements OnInit {
       ?.value.replace(/ /g, '-');
     const observation: string = this.form.get('observation')?.value;
     const msn: string = `
-    ====================
-    Necesitamos: *${tipoVehiculo}*  ${cupos}
-    ====================
+    =======================%0A
+    Necesitamos:*${tipoVehiculo}*
+    %0A=======================%0A
+    ${cupos}
+    %0A=======================%0A
     ${discap}
-    ====================
+    %0A=======================%0A
     ${transbordo}
-    ====================
+    %0A=======================%0A
     Recoger en: *${LugarRecogida}*
-    ====================
+    %0A=======================%0A
     Nombre:  ${nameVoter} Número de contacto: ${phone}
-    ====================
+    %0A=======================%0A
     ${lugarVotacion}
-    ====================
-    ${observation}   `;
+    %0A=======================%0A
+    ${observation}
+    %0A=======================%0A
+    `;
 
     const data = this.apiWp + tel + this.text + msn;
 
 
-    console.log(data);
 
-    // window.open(data);
+    window.open(data);
 
     // this.formUse = this.initFormUse();
     // this.goBack()

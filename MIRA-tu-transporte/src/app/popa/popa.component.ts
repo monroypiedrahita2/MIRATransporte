@@ -7,7 +7,7 @@ import { CONDUCTORES_POPA } from '../shared/constants/conductores/popa.const';
   styleUrls: ['./popa.component.css']
 })
 export class PopaComponent implements OnInit {
-  phone: string = '3176158612';
+  phone: string = '3218302570';
 
   conductores: any[] = CONDUCTORES_POPA
 
