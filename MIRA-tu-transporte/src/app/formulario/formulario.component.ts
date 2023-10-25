@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { PUESTOS_VOTACION } from '../shared/constants/puestos.const';
 
 @Component({
   selector: 'app-formulario',
@@ -7,10 +8,13 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+  arrayPuestos = PUESTOS_VOTACION
   apiWp: string = 'https://api.whatsapp.com/send?phone='
-  telmsn: string = '3176158612'
+  guadalupe: string = '3008318652'
+  alameda: string = '3176158612'
+  popa: string = '3176158612'
   text: string = '&text='
-  msn: string = this.apiWp + this.telmsn + this.text
+  msn: string = this.apiWp + this.guadalupe + this.text
   form!: FormGroup
   myField = new FormControl
 
@@ -20,8 +24,6 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.initForm();
-
-    console.log(this.form.value)
   }
 
   onSubmit() {
@@ -37,15 +39,16 @@ export class FormularioComponent implements OnInit {
     const lugarVotacion: string = this.form.get('lugarVotacion')?.value.replace(/ /g, "-")
     const observation: string = this.form.get('observation')?.value
     const data: string = `${this.msn} ========== Conductor Elegido: ${nameDriver} ============= Se necesita: *${tipoVehiculo}*     CANTIDAD  DE  PERSONAS: *${cupos}*    RECOGER EN: *${LugarRecogida}*      LLEVAR A  *${lugarVotacion}* GPS: https://www.google.com/maps/search/${lugarVotacion}         COMUNICARSE CON: *${nameVoter}*,          Teléfono *${phone}*       NOTA: *${observation}*`
-    window.open(data)
+    // window.open(data)
 
     console.log(this.form.value)
+      this.form = this.initForm();
   }
 
   initForm(): FormGroup {
     return this.fb.group({
       ciudad: ['Dosquebradas', Validators.required],
-      discap: ['SI', Validators.required],
+      discap: ['NO', Validators.required],
       tipoVehiculo: ['CARRO', Validators.required],
       cupos: ['1', Validators.required],
       disponibleVehiculo: ['SI', Validators.required],

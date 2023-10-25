@@ -81,7 +81,7 @@
               id="btnradio7"
               autocomplete="off"
               checked
-              [value]="''"
+              [value]="'NO'"
               formControlName="discap"
               name="discap"
             />
@@ -319,16 +319,18 @@
           <label for="exampleFormControlInput1" class="m-0"
             >¿Dónde llevar a la persona?</label
           >
+
+          <select class="form-select" formControlName="lugarVotacion">
+            <option *ngFor="let puesto of arrayPuestos" [value]="puesto.id">
+              {{ puesto.puesto }}
+            </option>
+          </select>
           <div
             *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
             class="text-danger"
           >
             Campo requerido
           </div>
-
-          <select class="form-select" formControlName="lugarVotacion">
-            <option value="MOTO">LUGAR</option>
-          </select>
         </div>
 
         <div class="mb-3">
@@ -353,7 +355,7 @@
         >
           <strong>Volver</strong>
         </button>
-        <button type="button" class="mx-4 rounded-5 btn-lg btn-success">
+        <button type="submit" (onClick)="onSubmit()" [disabled]="form.invalid"  [ngClass]="{ 'disabled-button': form.invalid }" class="mx-4 rounded-5 btn-lg btn-primary">
           Enviar
         </button>
       </div>

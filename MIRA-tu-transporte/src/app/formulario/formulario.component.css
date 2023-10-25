@@ -1,3 +1,10 @@
 .form{
   width: 100%;
 }
+
+.disabled-button {
+  background-color: rgb(217, 216, 216); /* Cambia el fondo a gris cuando está deshabilitado */
+  color: white; /* Cambia el color del texto a blanco cuando está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor a "no permitido" cuando está deshabilitado */
+  border-color: white;
+}
