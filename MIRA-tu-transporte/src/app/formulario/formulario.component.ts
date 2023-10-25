@@ -40,8 +40,8 @@ export class FormularioComponent implements OnInit {
   onSubmitActive() {
     const nameDriverActive: string =
       this.formActive.get('nameDriverActive')?.value;
-    const mensajeActive: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
-    const data = this.apiWp + this.ocupaciones + this.text + mensajeActive;
+    const msn: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
+    const data = this.apiWp + this.ocupaciones + this.text + msn;
 
     window.open(data);
 
@@ -59,12 +59,9 @@ export class FormularioComponent implements OnInit {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
     const nameDriver: string = this.formUse.get('nameDriver')?.value;
     const timeOut: string = this.formUse.get('timeOut')?.value;
-    const mensajeVehiculoEnUSo: string = `""""""""""""""""""""""""""""
-    El conductor: *${nameDriver}*
-    """""""""""""""""""""""""""""
-    esta OCUPADO por *${timeOut}*
-    """"""""""""""""""""""""""""" `;
-    console.log(mensajeVehiculoEnUSo);
+    const msn: string = `""""""""""""""""""""""""""""""""""""%0AEl%20conductor:%20*${nameDriver}*%0A""""""""""""""""""""""""""""""""""""%0ANuevo%20estado:%20*OCUPADO*%0A""""""""""""""""""""""""""""""""""""%0ATiempo%20estimado%20de%20ocupación:%20*${timeOut}*%0A""""""""""""""""""""""""""""""""""""`;
+    const data = this.apiWp + this.ocupaciones + this.text + msn;
+    window.open(data);
     this.formUse = this.initFormUse();
     this.goBack();
   }
@@ -72,7 +69,7 @@ export class FormularioComponent implements OnInit {
   initFormUse(): FormGroup {
     return this.fb.group({
       vehiculoUso: ['null', Validators.required],
-      nameDriver: ['Necesita carro', Validators.required],
+      nameDriver: ['', Validators.required],
       timeOut: ['', Validators.required],
     });
   }

@@ -67,7 +67,7 @@
             <select class="form-select" formControlName="nameDriver">
               <option
                 *ngFor="let conductor of conductores"
-                value="conductor.name"
+                [value]="conductor.name"
               >
                 {{ conductor.name }}
               </option>
