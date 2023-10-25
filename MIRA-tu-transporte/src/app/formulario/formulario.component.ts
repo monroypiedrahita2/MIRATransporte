@@ -14,22 +14,22 @@ import { Location } from '@angular/common';
 })
 export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
-
   arrayPuestos = PUESTOS_VOTACION;
+  // ocupaciones: string = '3008318652';
+  ocupaciones: string = '3128734217';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
-  guadalupe: string = '3008318652';
+
   alameda: string = '3176158612';
   popa: string = '3176158612';
   text: string = '&text=';
-  msn: string = this.apiWp + this.guadalupe + this.text;
   form!: FormGroup;
   formUse!: FormGroup;
   formActive!: FormGroup;
   myField = new FormControl();
 
+  // data: string = this.apiWp + telefono + this.text + mensaje; ASI SE MANDA EL MENSAJE
 
-
-  constructor(private readonly fb: FormBuilder, private location: Location,) {}
+  constructor(private readonly fb: FormBuilder, private location: Location) {}
 
   ngOnInit(): void {
     this.form = this.initForm();
@@ -37,45 +37,37 @@ export class FormularioComponent implements OnInit {
     this.formActive = this.initFormActive();
   }
 
-
-
   onSubmitActive() {
-    const nameDriverActive: string = this.formActive.get('nameDriverActive')?.value
-    const mensajeActive: string =
-    `<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    El conductor *${nameDriverActive}*
-    se encuentra *DISPONIBLE*
-    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`
-    console.log(mensajeActive)
+    const nameDriverActive: string =
+      this.formActive.get('nameDriverActive')?.value;
+    const mensajeActive: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
+    const data = this.apiWp + this.ocupaciones + this.text + mensajeActive;
 
-    // window.open(data);
+    window.open(data);
 
     this.formUse = this.initFormUse();
-    this.goBack()
-
+    this.goBack();
   }
 
-  initFormActive(){
+  initFormActive() {
     return this.fb.group({
-      nameDriverActive: ['', Validators.required]
+      nameDriverActive: ['', Validators.required],
     });
   }
 
   onSubmitUse() {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
     const nameDriver: string = this.formUse.get('nameDriver')?.value;
-    const timeOut: string = this.formUse.get('timeOut')?.value
-    const mensajeVehiculoEnUSo: string =
-    `""""""""""""""""""""""""""""
+    const timeOut: string = this.formUse.get('timeOut')?.value;
+    const mensajeVehiculoEnUSo: string = `""""""""""""""""""""""""""""
     El conductor: *${nameDriver}*
     """""""""""""""""""""""""""""
     esta OCUPADO por *${timeOut}*
-    """"""""""""""""""""""""""""" `
+    """"""""""""""""""""""""""""" `;
     console.log(mensajeVehiculoEnUSo);
     this.formUse = this.initFormUse();
-    this.goBack()
+    this.goBack();
   }
-
 
   initFormUse(): FormGroup {
     return this.fb.group({
@@ -86,7 +78,6 @@ export class FormularioComponent implements OnInit {
   }
 
   // ++++++++++++++++ SEGUNDO  FORMULARIO ++++++++++++++++++++++++++
-
 
   onSubmit() {
     const ciudad: string = this.form.get('ciudad')?.value;
@@ -100,10 +91,15 @@ export class FormularioComponent implements OnInit {
         'Vota en Santa Rosa: *Llevar a la iglesia de Alameda para transbordo*';
     }
 
-
-    const discap: string = this.form.get('discap')?.value === 'SI' ? 'Con espacio para silla de ruedas' : ' ';
+    const discap: string =
+      this.form.get('discap')?.value === 'SI'
+        ? 'Con espacio para silla de ruedas'
+        : ' ';
     const tipoVehiculo: string = this.form.get('tipoVehiculo')?.value;
-    const cupos: string = this.form.get('tipoVehiculo')?.value === 'MOTO' ? ' ' : `Cupos: *${this.form.get('cupos')?.value}*`  ;
+    const cupos: string =
+      this.form.get('tipoVehiculo')?.value === 'MOTO'
+        ? ' '
+        : `Cupos: *${this.form.get('cupos')?.value}*`;
 
     const nameVoter: string = this.form.get('nameVoter')?.value;
     const phone: string = this.form.get('phone')?.value;
@@ -128,17 +124,12 @@ export class FormularioComponent implements OnInit {
     ====================
     ${observation}   `;
 
-
-
-
     console.log(data);
 
     // window.open(data);
 
     // this.formUse = this.initFormUse();
     // this.goBack()
-
-
   }
 
   initForm(): FormGroup {
@@ -157,12 +148,12 @@ export class FormularioComponent implements OnInit {
         ],
       ],
       LugarRecogida: ['', Validators.required],
-      lugarVotacion: ['',],
+      lugarVotacion: [''],
       observation: [''],
     });
   }
 
-    // ++++++++++++++++ SEGUNDO  FORMULARIO ++++++++++++++++++++++++++
+  // ++++++++++++++++ SEGUNDO  FORMULARIO ++++++++++++++++++++++++++
 
   goBack() {
     this.location.back();
