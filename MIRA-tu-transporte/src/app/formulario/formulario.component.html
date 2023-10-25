@@ -373,7 +373,10 @@
             </div>
           </div>
 
-          <div *ngIf="form.get('ciudad')?.value === 'Dosquebradas'" class="col-sm-6 mb-2">
+          <div
+            *ngIf="form.get('ciudad')?.value === 'Dosquebradas'"
+            class="col-sm-6 mb-2"
+          >
             <label for="exampleFormControlInput1" class="m-0"
               >¿Dónde llevar a la persona?</label
             >
@@ -473,5 +476,16 @@
         </div>
       </div>
     </form>
+  </div>
+</div>
+<div *ngIf="formUse.get('vehiculoUso')?.value === 'null'" class="my-5 row">
+  <div class="col-12 d-flex justify-content-center">
+    <button
+      type="button"
+      routerLink="../"
+      class="mx-4 rounded-5 btn-lg btn-warning"
+    >
+      <strong>Volver</strong>
+    </button>
   </div>
 </div>

@@ -75,7 +75,7 @@ export class FormularioComponent implements OnInit {
 
   initFormUse(): FormGroup {
     return this.fb.group({
-      vehiculoUso: ['', Validators.required],
+      vehiculoUso: ['null', Validators.required],
       nameDriver: ['Necesita carro', Validators.required],
       timeOut: ['', Validators.required],
     });
