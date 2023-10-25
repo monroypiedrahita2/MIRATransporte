@@ -113,7 +113,7 @@ export class FormularioComponent implements OnInit {
     =======================%0A
     Necesitamos:*${tipoVehiculo}*
     %0A=======================%0A
-    ${cupos}
+    ${cupos} personas
     %0A=======================%0A
     ${discap}
     %0A=======================%0A
@@ -126,6 +126,8 @@ export class FormularioComponent implements OnInit {
     Número de contacto: ${phone}
     %0A=======================%0A
     ${lugarVotacion}
+    Ubicación GPS lugar de votación:
+    %0Ahttps://www.google.com/maps/search/Risaralda,-Dosquebradas,${lugarVotacion}%0A
     %0A=======================%0A
     ${observation}
     %0A=======================%0A

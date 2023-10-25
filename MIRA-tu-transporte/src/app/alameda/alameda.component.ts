@@ -7,8 +7,9 @@ import { CONDUCTORES_ALAMEDA } from '../shared/constants/conductores/alameda.con
   styleUrls: ['./alameda.component.css'],
 })
 export class AlamedaComponent implements OnInit {
-  conductores: any[] = CONDUCTORES_ALAMEDA;
   phone: string = '3235061945';
+
+  conductores: any[] = CONDUCTORES_ALAMEDA;
 
   constructor() {}
 
