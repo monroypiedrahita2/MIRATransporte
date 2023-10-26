@@ -19,7 +19,7 @@ button:active {
 
 .container-mira{
   height: 100vh;
-  padding: 20px 20px;
+  padding: 5px 10px;
 }
 
 .card-mira{
@@ -43,5 +43,18 @@ button:active {
 }
 
 
+/* Definimos la animación de crecimiento */
+@keyframes grow {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
+/* Aplicamos la animación a la clase .grow-element */
+.grow-element {
+  animation: grow 0.5s ease-in-out; /* Duración y función de tiempo de la animación */
+}
 
