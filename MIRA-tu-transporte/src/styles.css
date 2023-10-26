@@ -10,6 +10,12 @@ button{
   width: 250px;
 }
 
+button:active {
+  transform: scale(0.95); /* Escala del botón al ser presionado */
+}
+
+
+
 
 .container-mira{
   height: 100vh;
