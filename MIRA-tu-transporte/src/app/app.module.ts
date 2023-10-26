@@ -12,6 +12,7 @@ import { AlamedaComponent } from './alameda/alameda.component';
 import { GuadalupeComponent } from './guadalupe/guadalupe.component';
 import { PopaComponent } from './popa/popa.component';
 import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos.component';
+import { CardInfoComponent } from './card-info/card-info.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos
     GuadalupeComponent,
     PopaComponent,
     LibretaTelefonosComponent,
+    CardInfoComponent,
   ],
   imports: [
     BrowserModule,

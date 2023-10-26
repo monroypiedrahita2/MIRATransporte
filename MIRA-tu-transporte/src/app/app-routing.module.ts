@@ -24,7 +24,7 @@ const routes: Routes = [
     component: GuadalupeComponent
   },
   {
-    path: 'telefonos',
+    path: 'casas-de-apoyo',
     component: LibretaTelefonosComponent
   },
 ];

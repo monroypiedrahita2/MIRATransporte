@@ -114,9 +114,9 @@ export class FormularioComponent implements OnInit {
     'Ubicación GPS lugar de votación:%0A' + gps + lugarVotacion: '';
     const msn: string = `
     =======================%0A
-    Necesitamos:*${tipoVehiculo}*
+    Necesitamos: *${tipoVehiculo}*
     %0A=======================%0A
-    ${cupos} pasajeros
+    ${cupos} *pasajeros*
     %0A=======================%0A
     ${discap}
     %0A=======================%0A
