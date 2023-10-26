@@ -38,7 +38,7 @@ export class FormularioComponent implements OnInit {
 
   onSubmitActive() {
     const nameDriverActive: string =
-      this.formActive.get('nameDriverActive')?.value.name;
+      this.formActive.get('nameDriverActive')?.value.name.trim();
     const msn: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
     const data = this.apiWp + this.ocupaciones + this.text + msn;
 
@@ -60,8 +60,10 @@ export class FormularioComponent implements OnInit {
 
   onSubmitUse() {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
-    const nameDriver: string = this.formUse.get('nameDriver')?.value.name;
-    const timeOut: string = this.formUse.get('timeOut')?.value;
+    const nameDriver: string = this.formUse
+      .get('nameDriver')
+      ?.value.name.trim();
+    const timeOut: string = this.formUse.get('timeOut')?.value.trim();
     const msn: string = `""""""""""""""""""""""""""""""""""""%0AEl%20conductor:%20*${nameDriver}*%0A""""""""""""""""""""""""""""""""""""%0ANuevo%20estado:%20*OCUPADO*%0A""""""""""""""""""""""""""""""""""""%0ATiempo%20estimado%20de%20ocupación:%20*${timeOut}*%0A""""""""""""""""""""""""""""""""""""`;
     const data = this.apiWp + this.ocupaciones + this.text + msn;
     window.open(data);
@@ -101,12 +103,16 @@ export class FormularioComponent implements OnInit {
         ? '1'
         : `Cupos: *${this.form.get('cupos')?.value}*`;
 
-    const nameVoter: string = this.form.get('nameVoter')?.value;
-    const phone: string = this.form.get('phone')?.value;
-    const LugarRecogida: string = this.form.get('LugarRecogida')?.value;
-    const lugarVotacion: string = this.form.get('lugarVotacion')?.value.puesto;
-    const ubicacion: string = this.form.get('lugarVotacion')?.value.ubicacion;
-    const observation: string = this.form.get('observation')?.value;
+    const nameVoter: string = this.form.get('nameVoter')?.value.trim();
+    const phone: string = this.form.get('phone')?.value.trim();
+    const LugarRecogida: string = this.form.get('LugarRecogida')?.value.trim();
+    const lugarVotacion: string = this.form
+      .get('lugarVotacion')
+      ?.value.puesto.trim();
+    const ubicacion: string = this.form
+      .get('lugarVotacion')
+      ?.value.ubicacion.trim();
+    const observation: string = this.form.get('observation')?.value.trim();
     const gpsVotacion: string =
       this.form.get('ciudad')?.value === 'Dosquebradas'
         ? 'Ubicación GPS lugar de votación:%0A' + ubicacion
@@ -140,7 +146,7 @@ export class FormularioComponent implements OnInit {
     window.open(data);
 
     this.formUse = this.initFormUse();
-    this.goBack()
+    this.goBack();
   }
 
   initForm(): FormGroup {
