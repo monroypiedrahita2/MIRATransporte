@@ -104,15 +104,15 @@ export class FormularioComponent implements OnInit {
         : `Cupos: *${this.form.get('cupos')?.value}*`;
 
     const nameVoter: string = this.form.get('nameVoter')?.value.trim();
-    const phone: string = this.form.get('phone')?.value.trim();
+    const phone: string = this.form.get('phone')?.value;
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value.trim();
     const lugarVotacion: string = this.form
       .get('lugarVotacion')
-      ?.value.puesto.trim();
+      ?.value.puesto;
     const ubicacion: string = this.form
       .get('lugarVotacion')
-      ?.value.ubicacion.trim();
-    const observation: string = this.form.get('observation')?.value.trim();
+      ?.value.ubicacion;
+    const observation: string = this.form.get('observation')?.value;
     const gpsVotacion: string =
       this.form.get('ciudad')?.value === 'Dosquebradas'
         ? 'Ubicación GPS lugar de votación:%0A' + ubicacion
@@ -142,6 +142,7 @@ export class FormularioComponent implements OnInit {
     `;
 
     const data = this.apiWp + tel + this.text + msn;
+
 
     window.open(data);
 
