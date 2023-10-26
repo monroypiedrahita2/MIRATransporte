@@ -15,7 +15,7 @@ import { Location } from '@angular/common';
 export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
   @Input() telefono: string = '';
-  arrayPuestos = PUESTOS_VOTACION;
+  arrayPuestos: any[] = PUESTOS_VOTACION;
   ocupaciones: string = '573008318652';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
   text: string = '&text=';
@@ -32,7 +32,6 @@ export class FormularioComponent implements OnInit {
     this.form = this.initForm();
     this.formUse = this.initFormUse();
     this.formActive = this.initFormActive();
-
   }
 
   // ++++++++++++++++FORMULARIO DE ACTIVACION +++++++++++++++++++++
@@ -54,7 +53,6 @@ export class FormularioComponent implements OnInit {
       nameDriverActive: ['', Validators.required],
     });
   }
-
 
   // +++++++++++++++++++++ FIN PRIMER FORMULARIO +++++++++++++++++++++++
 
@@ -106,13 +104,13 @@ export class FormularioComponent implements OnInit {
     const nameVoter: string = this.form.get('nameVoter')?.value;
     const phone: string = this.form.get('phone')?.value;
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value;
-    const lugarVotacion: string = this.form
-      .get('lugarVotacion')
-      ?.value.puesto.replace(/ /g, '-');
+    const lugarVotacion: string = this.form.get('lugarVotacion')?.value.puesto;
+    const ubicacion: string = this.form.get('lugarVotacion')?.value.ubicacion;
     const observation: string = this.form.get('observation')?.value;
-    const gps: string = 'https://www.google.com/maps/search/Risaralda,-Dosquebradas,';
-    const gpsVotacion: string = this.form.get('ciudad')?.value === 'Dosquebradas' ?
-    'Ubicación GPS lugar de votación:%0A' + gps + lugarVotacion: '';
+    const gpsVotacion: string =
+      this.form.get('ciudad')?.value === 'Dosquebradas'
+        ? 'Ubicación GPS lugar de votación:%0A' + ubicacion
+        : '';
     const msn: string = `
     =======================%0A
     Necesitamos: *${tipoVehiculo}*
@@ -129,7 +127,7 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Número de contacto: ${phone}
     %0A=======================%0A
-    ${lugarVotacion}
+    ${lugarVotacion === undefined ? '' : lugarVotacion}
     %0A=======================%0A
     ${gpsVotacion}
     %0A=======================%0A
@@ -138,8 +136,6 @@ export class FormularioComponent implements OnInit {
     `;
 
     const data = this.apiWp + tel + this.text + msn;
-
-
 
     window.open(data);
 
