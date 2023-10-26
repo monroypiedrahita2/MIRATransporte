@@ -1,15 +1,16 @@
 <div *ngFor="let casa of casasApoyo" class="card mb-2 shadow" style="width: 100%">
   <div class="card-body">
-    <h2 class="card-title">{{ casa.barrio }}</h2>
-    <p><strong>Dirección:</strong>&nbsp;{{ casa.direccion }}</p>
+    <div class="d-flex justify-content-between">
+        <h2 class="card-title">{{ casa.barrio }}</h2>
+
+        <h2 class="card-title">{{ casa.lider }}</h2>
+    </div>
+    <p>{{ casa.direccion }}</p>
     <p><strong>Puesto de votación:</strong>&nbsp; {{ casa.puesto }}</p>
-    <p class="card-text">
-      <strong>Coordinador: </strong>&nbsp;
-      {{ casa.lider }}
-    </p>
+
     <p class="card-text">
       <strong>Célular: </strong>&nbsp;
-      {{ casa.cel }}
+      <a href="casa.cel">{{ casa.cel }}</a>
     </p>
     <div class="row">
       <div class="col-6">
