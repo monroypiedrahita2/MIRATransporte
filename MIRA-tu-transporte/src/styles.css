@@ -11,7 +11,7 @@ button{
 }
 
 button:active {
-  transform: scale(0.95); /* Escala del botón al ser presionado */
+  transform: scale(0.90); /* Escala del botón al ser presionado */
 }
 
 
