@@ -60,20 +60,27 @@
           <div class="text-center">
             <h2 class="my-2">Nombre del conductor ocupado:</h2>
           </div>
-          <div>
-            <label for="exampleFormControlInput1" class="mt-5 text-center">
-              ¿Nombre del conductor?
-            </label>
-            <select class="form-select" formControlName="nameDriver">
-              <option
-                *ngFor="let conductor of conductores"
-                [value]="conductor.name"
-              >
-                {{ conductor.name }}
-              </option>
-              <option value="Alexander Castañeda">Alexander Castañeda</option>
-            </select>
-          </div>
+
+          <div class="ng-autocomplete w-100">
+            <ng-autocomplete
+              [data]="conductores"
+              formControlName="nameDriver"
+              [searchKeyword]="'name'"
+              placeholder="Seleccione el conductor"
+              [itemTemplate]="itemTemplate"
+              [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+            </ng-template>
+            </div>
+
+
           <div>
             <label for="exampleFormControlInput1" class="mt-5 text-center">
               ¿Tiempo de ocupación?
@@ -364,7 +371,7 @@
 
           <div class="col-sm-6 mb-2">
             <label for="exampleFormControlInput1" class="m-0"
-              >¿Lugar de recoger al votante?</label
+              >Lugar a donde se recoge al votante</label
             >
             <input
               type="string"
@@ -386,14 +393,33 @@
             class="col-sm-6 mb-2"
           >
             <label for="exampleFormControlInput1" class="m-0"
-              >¿Dónde llevar a la persona?</label
+              >¿A dónde llevar a la persona?</label
             >
 
-            <select class="form-select" formControlName="lugarVotacion">
+            <div class="ng-autocomplete w-100">
+              <ng-autocomplete
+                [data]="arrayPuestos"
+                formControlName="lugarVotacion"
+                [searchKeyword]="'puesto'"
+                placeholder="Seleccione el puesto de votación"
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">
+              </ng-autocomplete>
+
+              <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item.puesto"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+              </ng-template>
+              </div>
+
+            <!-- <select class="form-select" formControlName="lugarVotacion">
               <option *ngFor="let puesto of arrayPuestos" [value]="puesto.puesto">
                 {{ puesto.puesto }}
               </option>
-            </select>
+            </select> -->
             <div
               *ngIf="form.get('lugarVotacion')?.touched && form.get('lugarVotacion')?.errors?.['required']"
               class="text-danger"
@@ -447,10 +473,30 @@
 
     <form (ngSubmit)="onSubmitActive()" [formGroup]="formActive">
       <div *ngIf="formUse.get('vehiculoUso')?.value === 'activar'">
-        <div class="row text-center">
+        <div class="row">
           <h2 class="my-2">Nombre del conductor que se va activar:</h2>
 
-          <div>
+
+
+          <div class="ng-autocomplete w-100">
+            <ng-autocomplete
+              [data]="conductores"
+              formControlName="nameDriverActive"
+              [searchKeyword]="'name'"
+              placeholder="Seleccione el conductor"
+              [itemTemplate]="itemTemplate"
+              [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+            </ng-template>
+            </div>
+          <!-- <div>
             <label for="exampleFormControlInput30" class="mt-5 text-center">
               ¿Nombre del conductor disponible?
             </label>
@@ -462,7 +508,7 @@
                 {{ conductor.name }}
               </option>
             </select>
-          </div>
+          </div> -->
         </div>
       </div>
 

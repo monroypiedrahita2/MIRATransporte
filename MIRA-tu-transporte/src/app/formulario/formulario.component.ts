@@ -32,13 +32,14 @@ export class FormularioComponent implements OnInit {
     this.form = this.initForm();
     this.formUse = this.initFormUse();
     this.formActive = this.initFormActive();
+
   }
 
   // ++++++++++++++++FORMULARIO DE ACTIVACION +++++++++++++++++++++
 
   onSubmitActive() {
     const nameDriverActive: string =
-      this.formActive.get('nameDriverActive')?.value;
+      this.formActive.get('nameDriverActive')?.value.name;
     const msn: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
     const data = this.apiWp + this.ocupaciones + this.text + msn;
 
@@ -61,7 +62,7 @@ export class FormularioComponent implements OnInit {
 
   onSubmitUse() {
     const vehiculoUso: string = this.formUse.get('vehiculoUso')?.value;
-    const nameDriver: string = this.formUse.get('nameDriver')?.value;
+    const nameDriver: string = this.formUse.get('nameDriver')?.value.name;
     const timeOut: string = this.formUse.get('timeOut')?.value;
     const msn: string = `""""""""""""""""""""""""""""""""""""%0AEl%20conductor:%20*${nameDriver}*%0A""""""""""""""""""""""""""""""""""""%0ANuevo%20estado:%20*OCUPADO*%0A""""""""""""""""""""""""""""""""""""%0ATiempo%20estimado%20de%20ocupación:%20*${timeOut}*%0A""""""""""""""""""""""""""""""""""""`;
     const data = this.apiWp + this.ocupaciones + this.text + msn;
@@ -107,7 +108,7 @@ export class FormularioComponent implements OnInit {
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value;
     const lugarVotacion: string = this.form
       .get('lugarVotacion')
-      ?.value.replace(/ /g, '-');
+      ?.value.puesto.replace(/ /g, '-');
     const observation: string = this.form.get('observation')?.value;
     const gps: string = 'https://www.google.com/maps/search/Risaralda,-Dosquebradas,';
     const gpsVotacion: string = this.form.get('ciudad')?.value === 'Dosquebradas' ?
@@ -142,8 +143,8 @@ export class FormularioComponent implements OnInit {
 
     window.open(data);
 
-    // this.formUse = this.initFormUse();
-    // this.goBack()
+    this.formUse = this.initFormUse();
+    this.goBack()
   }
 
   initForm(): FormGroup {

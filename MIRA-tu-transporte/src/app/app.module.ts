@@ -13,6 +13,7 @@ import { GuadalupeComponent } from './guadalupe/guadalupe.component';
 import { PopaComponent } from './popa/popa.component';
 import { LibretaTelefonosComponent } from './libreta-telefonos/libreta-telefonos.component';
 import { CardInfoComponent } from './card-info/card-info.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { CardInfoComponent } from './card-info/card-info.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AutocompleteLibModule
+
 
   ],
   providers: [],
