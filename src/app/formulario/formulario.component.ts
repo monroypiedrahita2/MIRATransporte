@@ -37,8 +37,9 @@ export class FormularioComponent implements OnInit {
   // ++++++++++++++++FORMULARIO DE ACTIVACION +++++++++++++++++++++
 
   onSubmitActive() {
-    const nameDriverActive: string =
-      this.formActive.get('nameDriverActive')?.value.name.trim();
+    const nameDriverActive: string = this.formActive
+      .get('nameDriverActive')
+      ?.value.name.trim();
     const msn: string = `<<<<<<<<<<<<<<<<<<<<<<<<<<<%0AEl%20conductor%20%20*${nameDriverActive}*%20%20%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>%0ANuevo%20estado%20*DISPONIBLE*%0A>>>>>>>>>>>>>>>>>>>>>>>>>>>`;
     const data = this.apiWp + this.ocupaciones + this.text + msn;
 
@@ -106,12 +107,8 @@ export class FormularioComponent implements OnInit {
     const nameVoter: string = this.form.get('nameVoter')?.value.trim();
     const phone: string = this.form.get('phone')?.value;
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value.trim();
-    const lugarVotacion: string = this.form
-      .get('lugarVotacion')
-      ?.value.puesto;
-    const ubicacion: string = this.form
-      .get('lugarVotacion')
-      ?.value.ubicacion;
+    const lugarVotacion: string = this.form.get('lugarVotacion')?.value.puesto;
+    const ubicacion: string = this.form.get('lugarVotacion')?.value.ubicacion;
     const observation: string = this.form.get('observation')?.value;
     const gpsVotacion: string =
       this.form.get('ciudad')?.value === 'Dosquebradas'
@@ -143,7 +140,6 @@ export class FormularioComponent implements OnInit {
 
     const data = this.apiWp + tel + this.text + msn;
 
-
     window.open(data);
 
     this.formUse = this.initFormUse();
@@ -174,6 +170,8 @@ export class FormularioComponent implements OnInit {
   // ++++++++++++++++ SEGUNDO  FORMULARIO ++++++++++++++++++++++++++
 
   goBack() {
-    this.location.back();
+    setTimeout(() => {
+      this.location.back(); // Retrocede después de 2 segundos
+    }, 2000); // 2000 milisegundos = 2 segundos
   }
 }
