@@ -140,13 +140,6 @@ export const CONDUCTORES_POPA = [
     phone: '3104305831',
   },
   {
-    id: 68,
-    name: 'Sebastian Morales',
-    nameMaps: 'Sebastian Morales',
-    tipoVehiculo: 'CARRO',
-    phone: '3215344446',
-  },
-  {
     id: 69,
     name: 'Robert Celis',
     nameMaps: 'Robert Celis',
@@ -418,13 +411,6 @@ export const CONDUCTORES_POPA = [
     nameMaps: 'Normanyely Ramirez',
     tipoVehiculo: 'Carro',
     phone: '3145566808',
-  },
-  {
-    id: 108,
-    name: 'Jose Joaquin Casas',
-    nameMaps: 'Jose Joaquin Casas',
-    tipoVehiculo: 'Carro',
-    phone: '3224303862',
   },
   {
     id: 109,
