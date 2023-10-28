@@ -85,13 +85,16 @@ export class FormularioComponent implements OnInit {
   onSubmit(tel: string) {
     const ciudad: string = this.form.get('ciudad')?.value;
     var transbordo = '';
+    var fueraDosque: string = '';
 
     if (ciudad === 'Pereira') {
       transbordo =
         'Vota en Pereira: *llevar a la iglesia de La Popa para transbordo*';
+        fueraDosque = 'En Pereira'
     } else if (ciudad === 'Santa Rosa') {
       transbordo =
         'Vota en Santa Rosa: *Llevar a la iglesia de Alameda para transbordo*';
+        fueraDosque = 'En Santa Rosa'
     }
 
     const discap: string =
@@ -130,7 +133,7 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Número de contacto: ${phone}
     %0A=======================%0A
-    Puesto de votación: ${lugarVotacion === undefined ? '' : lugarVotacion}
+    Puesto de votación: ${fueraDosque} ${lugarVotacion === undefined ? '' : lugarVotacion}
     %0A=======================%0A
     ${gpsVotacion}
     %0A=======================%0A
