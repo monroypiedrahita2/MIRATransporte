@@ -100,8 +100,8 @@ export class FormularioComponent implements OnInit {
     const tipoVehiculo: string = this.form.get('tipoVehiculo')?.value;
     const cupos: string =
       this.form.get('tipoVehiculo')?.value === 'MOTO'
-        ? '1'
-        : `Cupos: *${this.form.get('cupos')?.value}*`;
+        ? '1 pasajero'
+        : `Cupos: ${this.form.get('cupos')?.value}`;
 
     const nameVoter: string = this.form.get('nameVoter')?.value.trim();
     const phone: string = this.form.get('phone')?.value;
@@ -121,7 +121,7 @@ export class FormularioComponent implements OnInit {
     =======================%0A
     Necesitamos: *${tipoVehiculo}*
     %0A=======================%0A
-    ${cupos} *pasajeros*
+    *${cupos}*
     %0A=======================%0A
     ${discap}
     %0A=======================%0A
@@ -133,7 +133,7 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Número de contacto: ${phone}
     %0A=======================%0A
-    ${lugarVotacion === undefined ? '' : lugarVotacion}
+    Puesto de votación: ${lugarVotacion === undefined ? '' : lugarVotacion}
     %0A=======================%0A
     ${gpsVotacion}
     %0A=======================%0A
