@@ -565,4 +565,17 @@ export const PUESTOS_CASAS = [
     ubicacionPuesto:
       'https://www.google.com/maps/search/Risaralda,-Dosquebradas,COLEGIO-NUEVA-REPUBLICA',
   },
+  {
+    id: 51,
+    puesto: 'COLEGIO FABIO VASQUEZ',
+    barrio: 'La pradera',
+    direccion: 'Calle 23 No 27 - 15',
+    lider: 'Felipe Ramirez',
+    phone: 'https://wa.me/573216207043',
+    cel: '3216207043',
+    llamar: '+573216207043',
+    ubicacionCasaApoyo: '',
+    ubicacionPuesto:
+      'https://www.google.com/maps/search/Risaralda,-Dosquebradas,FABIO VASQUEZ',
+  },
 ];
