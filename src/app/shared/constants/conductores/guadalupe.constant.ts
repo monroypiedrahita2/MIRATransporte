@@ -139,4 +139,11 @@ export const CONDUCTORES_GUADALUPE = [
     tipoVehiculo: 'Carro',
     phone: '3206389262',
   },
+  {
+    id: 1247,
+    name: 'Sandra Milena Ossa Amariles',
+    nameMaps: 'Sandra Ossa ',
+    tipoVehiculo: 'Carro',
+    phone: '3218473528',
+  },
 ];
