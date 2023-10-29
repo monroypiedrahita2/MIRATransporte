@@ -50,8 +50,8 @@ export const CONDUCTORES_POPA = [
   },
   {
     id: 55,
-    name: 'Juan Camilo Lopez',
-    nameMaps: 'Juan Camilo Lopez',
+    name: 'Juan Camilo Lopez Macanera',
+    nameMaps: 'Juan Camilo Lopez Macanera',
     tipoVehiculo: 'CARRO',
     phone: '3175151455',
   },
@@ -379,8 +379,8 @@ export const CONDUCTORES_POPA = [
   },
   {
     id: 103,
-    name: 'Juan Camilo Lopez',
-    nameMaps: 'Juan Camilo Lopez',
+    name: 'Juan Camilo Lopez Cantante',
+    nameMaps: 'Juan Camilo Lopez Cantante',
     tipoVehiculo: 'CARRO',
     phone: '3187348963',
   },
