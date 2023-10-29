@@ -243,7 +243,7 @@ export const PUESTOS_CASAS = [
     puesto: 'LAS MARCADAS ALTO DEL TORO',
     barrio: 'Vereda Alto El Toro',
     direccion: 'ALTO EL TORO finca los farayones antes de subir al pájaro',
-    lider: 'Cristina',
+    lider: 'Sandra Cristina Saldarriaga',
     phone: 'https://wa.me/573054151477',
     cel: '3054151477',
     llamar: '+573054151477',
