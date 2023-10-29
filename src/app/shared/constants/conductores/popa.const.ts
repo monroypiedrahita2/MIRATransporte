@@ -490,7 +490,13 @@ export const CONDUCTORES_POPA = [
     phone: '3122607123',
   },
   {
-    name: 'sebastian ramirez',
+    name: 'Sebastian Ramirez',
+    nameMaps: 'sebastian ramirez',
+    tipoVehiculo: 'CARRO',
+    phone: '3114211186',
+  },
+  {
+    name: 'Fernando Valencia',
     nameMaps: 'sebastian ramirez',
     tipoVehiculo: 'CARRO',
     phone: '3114211186',

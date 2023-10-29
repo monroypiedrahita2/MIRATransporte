@@ -181,4 +181,11 @@ export const CONDUCTORES_GUADALUPE = [
     tipoVehiculo: 'Carro',
     phone: '3218473528',
   },
+  {
+    id: 1247,
+    name: 'Hernando Garcia',
+    nameMaps: 'Hernando arcia',
+    tipoVehiculo: 'Carro',
+    phone: '3218473528',
+  },
 ];
