@@ -76,7 +76,7 @@
             </ng-template>
 
             <ng-template #notFoundTemplate let-notFound>
-            <div [innerHTML]="notFound"></div>
+            <div [innerHTML]="'Escriba palabras Claves'"></div>
             </ng-template>
             </div>
 
@@ -398,7 +398,7 @@
 
             <div class="ng-autocomplete w-100">
               <ng-autocomplete
-                [data]="arrayPuestos"
+                [data]="arrayPuestosCasas"
                 formControlName="lugarVotacion"
                 [searchKeyword]="'puesto'"
                 placeholder="Seleccione el puesto de votación"
@@ -411,7 +411,7 @@
               </ng-template>
 
               <ng-template #notFoundTemplate let-notFound>
-              <div [innerHTML]="'Escriba correctamente el nombre' "></div>
+              <div [innerHTML]="'Escriba palabras claves' "></div>
               </ng-template>
               </div>
 
@@ -493,7 +493,7 @@
             </ng-template>
 
             <ng-template #notFoundTemplate let-notFound>
-            <div [innerHTML]="notFound"></div>
+            <div [innerHTML]="'Escriba palabras claves'"></div>
             </ng-template>
             </div>
           <!-- <div>

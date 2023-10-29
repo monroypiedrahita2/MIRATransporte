@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { PUESTOS_VOTACION } from '../shared/constants/puestos.const';
 import { Location } from '@angular/common';
+import { PUESTOS_CASAS } from '../shared/constants/puesto-casa.const';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -16,6 +17,7 @@ export class FormularioComponent implements OnInit {
   @Input() conductores: any[] = [];
   @Input() telefono: string = '';
   arrayPuestos: any[] = PUESTOS_VOTACION;
+  arrayPuestosCasas: any[] = PUESTOS_CASAS;
   ocupaciones: string = '573008318652';
   apiWp: string = 'https://api.whatsapp.com/send?phone=';
   text: string = '&text=';
@@ -90,11 +92,11 @@ export class FormularioComponent implements OnInit {
     if (ciudad === 'Pereira') {
       transbordo =
         'Vota en Pereira: *llevar a la iglesia de La Popa para transbordo*';
-        fueraDosque = 'En Pereira'
+      fueraDosque = '*En Pereira*';
     } else if (ciudad === 'Santa Rosa') {
       transbordo =
         'Vota en Santa Rosa: *Llevar a la iglesia de Alameda para transbordo*';
-        fueraDosque = 'En Santa Rosa'
+      fueraDosque = '*En Santa Rosa*';
     }
 
     const discap: string =
@@ -111,12 +113,35 @@ export class FormularioComponent implements OnInit {
     const phone: string = this.form.get('phone')?.value;
     const LugarRecogida: string = this.form.get('LugarRecogida')?.value.trim();
     const lugarVotacion: string = this.form.get('lugarVotacion')?.value.puesto;
-    const ubicacion: string = this.form.get('lugarVotacion')?.value.ubicacion;
+    const barrioVotacion: string =
+      'Barrio de votación: ' + this.form.get('lugarVotacion')?.value.barrio;
+    const ubicacionPuesto: string =
+      this.form.get('lugarVotacion')?.value.ubicacionPuesto;
     const observation: string = this.form.get('observation')?.value;
-    const gpsVotacion: string =
-      this.form.get('ciudad')?.value === 'Dosquebradas'
-        ? 'Ubicación GPS lugar de votación:%0A' + ubicacion
-        : '';
+    var gpsVotacion: string = '';
+    var barrioV: string = '';
+
+    if (ciudad === 'Dosquebradas') {
+      gpsVotacion = 'Ubicación GPS lugar de votación:%0A' + ubicacionPuesto;
+    } else if (ciudad === 'Pereira') {
+      gpsVotacion =
+        'Ubicación transbordo:%0A' +
+        'https://www.google.com/maps?q=4.8207449662,-75.68307682';
+    } else if (ciudad === 'Santa Rosa') {
+      gpsVotacion =
+        'Ubicación transbordo:%0A' +
+        'https://www.google.com/maps?q=4.847032469,-75.66867828';
+    }
+
+    if (ciudad === 'Dosquebradas') {
+      barrioV = '*' + barrioVotacion + '*';
+    } else {
+      barrioV = '';
+    }
+
+    this.form.get('ciudad')?.value === 'Dosquebradas'
+      ? 'Ubicación GPS lugar de votación:%0A' + ubicacionPuesto
+      : '';
     const msn: string = `
     =======================%0A
     Necesitamos: *${tipoVehiculo}*
@@ -133,9 +158,12 @@ export class FormularioComponent implements OnInit {
     %0A=======================%0A
     Número de contacto: ${phone}
     %0A=======================%0A
-    Puesto de votación: ${fueraDosque} ${lugarVotacion === undefined ? '' : lugarVotacion}
+    Puesto de votación: ${fueraDosque} ${
+      lugarVotacion === undefined ? '' : lugarVotacion
+    }%0A
+    ${barrioV}
     %0A=======================%0A
-    ${gpsVotacion}
+    ${gpsVotacion}%0A
     %0A=======================%0A
     ${observation}
     %0A=======================%0A
