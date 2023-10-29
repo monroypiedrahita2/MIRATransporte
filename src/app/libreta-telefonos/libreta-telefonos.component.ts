@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CASAS_APOYO } from '../shared/constants/casas.const';
+import { PUESTOS_CASAS } from '../shared/constants/puesto-casa.const';
 
 @Component({
   selector: 'app-libreta-telefonos',
@@ -7,7 +7,7 @@ import { CASAS_APOYO } from '../shared/constants/casas.const';
   styleUrls: ['./libreta-telefonos.component.css'],
 })
 export class LibretaTelefonosComponent implements OnInit {
-  casasApoyo = CASAS_APOYO;
+  casasApoyo = PUESTOS_CASAS;
   resultadosFiltrados = this.casasApoyo;
 
   constructor() {}
@@ -24,9 +24,9 @@ export class LibretaTelefonosComponent implements OnInit {
       this.resultadosFiltrados = this.casasApoyo.filter((casa) => {
         const termino = text.toLowerCase();
         return (
-          casa.barrio.toLowerCase().includes(termino) ||
-          casa.puesto.toLowerCase().includes(termino) ||
-          casa.lider.toLowerCase().includes(termino)
+          casa.barrio?.toLowerCase().includes(termino) ||
+          casa.puesto?.toLowerCase().includes(termino) ||
+          casa.lider?.toLowerCase().includes(termino)
         );
       });
 
